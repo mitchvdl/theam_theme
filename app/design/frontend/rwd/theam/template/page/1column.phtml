@@ -34,7 +34,10 @@
         <?php echo $this->getChildHtml('footer') ?>
         <?php echo $this->getChildHtml('global_cookie_notice') ?>
         <?php echo $this->getChildHtml('before_body_end') ?>
-        <?php echo $this->getAbsoluteFooter() ?>
+        <footer class="site-footer" style="background-color: #000000;color: #818488;" role="contentinfo">
+            <address class="copyright"><?php echo Mage::getStoreConfig('design/footer/copyright') ?></address>
+            <?php echo $this->getAbsoluteFooter() ?>
+        </footer>
     </div>
 </div>
 </body>
