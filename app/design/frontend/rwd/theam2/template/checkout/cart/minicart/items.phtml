@@ -1,0 +1,74 @@
+<?php
+/**
+ * Shoping cart sidebar
+ *
+ * @var Mage_Checkout_Block_Cart_Minicart $this
+ */
+?>
+
+<?php
+$_cartQty = $this->getSummaryCount();
+if(empty($_cartQty)) {
+    $_cartQty = 0;
+}
+?>
+<?php $_items = $this->getRecentItems() ?>
+<?php $countItems = count($_items); ?>
+<?php if($countItems): ?>
+    <li>
+        <table class="table hcart">
+        <?php foreach($_items as $_item): ?>
+            <?php echo $this->getItemHtml($_item) ?>
+        <?php endforeach; ?>
+        </table>
+        <script type="text/javascript">
+            decorateList('cart-sidebar', 'none-recursive');
+            $j('document').ready(function() {
+                var minicartOptions  = {
+                    formKey:           "<?php echo $this->getFormKey();?>"
+                }
+                var Mini = new Minicart(minicartOptions);
+                Mini.init();
+            });
+        </script>
+    </li>
+    <li>
+        <?php if ($this->canApplyMsrp()): ?>
+            <span class="map-cart-sidebar-total"><?php echo $this->__('ORDER TOTAL WILL BE DISPLAYED BEFORE YOU SUBMIT THE ORDER'); ?></span>
+        <?php else: ?>
+        <table class="table table-bordered total">
+            <tbody>
+            <tr>
+                <td class="text-right"><strong><?php echo $this->__('Cart Subtotal:') ?></strong></td>
+                <td class="text-left"><?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()) ?></td>
+            </tr>
+            <?php if ($_subtotalInclTax = $this->getSubtotalInclTax()): ?>
+                <tr>
+                    <td class="text-right"><strong><?php echo Mage::helper('tax')->getIncExcText(true) ?></strong></td>
+                    <td class="text-left"><?php echo Mage::helper('checkout')->formatPrice($_subtotalInclTax); ?></td>
+                </tr>
+            <?php endif; ?>
+            </tbody>
+        </table>
+        <?php endif; ?>
+    <li>
+    <?php if($_cartQty && $this->isPossibleOnepageCheckout()): ?>
+        <p class="text-right btn-block1">
+            <a href="<?php echo $this->getUrl('checkout/cart'); ?>">
+                <?php echo $this->__('View Shopping Cart'); ?>
+            </a>
+            <a title="<?php echo $this->__('Checkout') ?>" class="button checkout-button" href="<?php echo $this->getCheckoutUrl() ?>">
+                <?php echo $this->__('Checkout') ?>
+            </a>
+              <ul class="checkout-types minicart">
+                <?php echo $this->getChildHtml('extra_actions') ?>
+              </ul>
+        </p>
+    <?php endif ?>
+    </li>
+<?php else: ?>
+    <li>
+        <p class="text-center empty"><?php echo $this->__('You have no items in your shopping cart.') ?></p>
+    </li>
+
+<?php endif ?>

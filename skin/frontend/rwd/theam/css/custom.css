@@ -25,9 +25,14 @@ input[type="reset"]:hover {background-color: #5d636a;color: #fff;}
     margin-bottom: 20px;
 }
 
+#masthead {
+    margin-top: 5px;
+}
+
 #content {
-    padding: 48px 0;
-    border-top: 1px solid #d0d0d0;
+    /*padding: 48px 0;*/
+    /*border-top: 1px solid #d0d0d0;*/
+    margin-left: 10px;
 }
 .site-footer {
     background-color: #000;
@@ -35,12 +40,6 @@ input[type="reset"]:hover {background-color: #5d636a;color: #fff;}
     padding: 16px 0;
     text-align: center;
     font: normal 0.688rem verdana, sans-serif;
-}
-#breadcrumbs {
-    margin-bottom: 20px;
-    font: italic 0.688rem verdana, sans-serif;
-    color: #b9bbbd;
-    border-top: 1px solid #d0d0d0;
 }
 
 body.custom-background { background-image: url('../images/scanlines.png'); background-repeat: repeat; background-position: top left; background-attachment: fixed; }

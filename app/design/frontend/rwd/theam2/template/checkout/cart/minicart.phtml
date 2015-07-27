@@ -1,0 +1,18 @@
+<?php
+/**
+ * Shoping cart sidebar
+ *
+ * @see Mage_Checkout_Block_Cart_Sidebar
+ */
+
+?>
+
+<?php
+    $_cartQty = $this->getSummaryCount();
+    if(empty($_cartQty)) {
+        $_cartQty = 0;
+    }
+?>
+<ul class="dropdown-menu pull-right">
+    <?php echo $this->getChildHtml('minicart_content');?>
+</ul>
