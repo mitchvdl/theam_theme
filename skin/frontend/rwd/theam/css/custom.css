@@ -1,0 +1,113 @@
+a, a:visited {color:#c8842d;}
+a:hover, a:focus, a:active {color:#686868;}
+#footer-group a, #footer-group a:visited {color:#f3d7c9;}
+#footer-group .tagcloud a {border-color: #f3d7c9;}
+#footer-group .widget-title {color:#f7ece7;}
+#footer-group li {border-color:#c88e71;}
+#footer-menu a {color: #a0a0a0;}
+#footer-menu a:hover {color: #c7b596;}
+.social-navigation a {color: #5d636a;}
+.social-navigation a:hover {color: #a9aeb3;}
+.shaped-btn,button,input[type='submit'],input[type='reset'],
+.shaped-btn:visited,button:visited,input[type='submit']:visited,
+input[type='reset']:visited {background-color: #b7bcc1; color: #fff; }
+.shaped-btn:hover,button:hover,input[type="submit"]:hover,
+input[type="reset"]:hover {background-color: #5d636a;color: #fff;}
+.primary-navigation li a, .primary-navigation li li > a {color: #686868;}
+.primary-navigation ul ul {background-color: #fff;	border-color: #b5704e;}
+.site-navigation a:hover,
+.site-navigation .active > a {color: #d9a241;	}
+.site-navigation .active > a,
+.site-navigation .current-menu-ancestor > a {color: #d9a241;}
+.site-branding img, .site-title {margin: 38px 0 0 0;}
+
+.page-header {
+    margin-bottom: 20px;
+}
+
+#content {
+    padding: 48px 0;
+    border-top: 1px solid #d0d0d0;
+}
+.site-footer {
+    background-color: #000;
+    color: #818488;
+    padding: 16px 0;
+    text-align: center;
+    font: normal 0.688rem verdana, sans-serif;
+}
+#breadcrumbs {
+    margin-bottom: 20px;
+    font: italic 0.688rem verdana, sans-serif;
+    color: #b9bbbd;
+    border-top: 1px solid #d0d0d0;
+}
+
+body.custom-background { background-image: url('../images/scanlines.png'); background-repeat: repeat; background-position: top left; background-attachment: fixed; }
+
+
+/*--------------------------------------------------------------
+3.0 Layout
+--------------------------------------------------------------*/
+#cms-home {
+    margin: 32px auto;
+    background-color: #fff;
+    font-weight: 400;
+    font-size: 0.813rem;
+    line-height: 1.65;
+    color: #888;
+    -webkit-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 	0px 0px 20px 5px rgba(0,0,0,0.75);
+    box-shadow: 		0px 0px 20px 5px rgba(0,0,0,0.75);
+}
+/* Boxed sized pages. Please note that boxed views are best suited for larger resolutions and monitors.*/
+#cms-home.full {
+    width: 100%;
+    margin: 5px auto 32px;
+}
+#cms-home.wide1600 {
+    max-width: 1600px;
+}
+#cms-home.wide1400 {
+    max-width: 1400px;
+}
+
+/* -------------------------------------------- *
+ * Breadcrumbs
+ */
+.breadcrumbs {
+    overflow: hidden;
+    margin: -15px 0 15px;
+}
+
+.breadcrumbs li {
+    float: left;
+    font-size: 12px;
+    font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+.breadcrumbs a {
+    float: left;
+    color: #636363;
+}
+
+.breadcrumbs a:hover {
+    color: #3399cc;
+}
+
+.breadcrumbs strong {
+    color: #636363;
+    font-weight: normal;
+}
+
+.breadcrumbs span {
+    float: left;
+    padding: 0 7px;
+}
+
+@media only screen and (max-width: 770px) {
+    .breadcrumbs {
+        display: none;
+    }
+}

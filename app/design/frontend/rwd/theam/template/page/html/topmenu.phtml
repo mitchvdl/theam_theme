@@ -1,0 +1,21 @@
+<?php
+/**
+ * Top menu for store
+ *
+ * @see Mage_Page_Block_Html_Topmenu
+ */
+?>
+<?php $_menu = $this->getHtml('level-top') ?>
+
+<?php if ($_menu): ?>
+    <nav id="site-navigation" class="site-navigation primary-navigation" role="navigation">
+        <div class="toggle-container visible-xs visible-sm hidden-md hidden-lg">
+            <button class="menu-toggle"><?php echo $this->__('Menu'); ?></button>
+        </div>
+        <div class="menu-top-navigation-container">
+            <ul id="menu-top-navigation" class="nav-menu nav-primary">
+                <?php echo $_menu ?>
+            </ul>
+        </div>
+    </nav>
+<?php endif ?>
