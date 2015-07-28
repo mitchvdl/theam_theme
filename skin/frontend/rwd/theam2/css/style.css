@@ -115,9 +115,9 @@ hr{
 
 #header-area{
 	background:#fff;
-	margin-bottom:20px;
+	margin-bottom:0px;
 }
-#header-area.home {
+#cms-home, #header-area {
 	margin-bottom:0;
 }
 	.header-top{
@@ -671,6 +671,7 @@ hr{
 /* Main Container Styles Starts */		
 
 	#main-container{
+		margin-top:20px;
 		margin-bottom:35px;
 	}
 	#main-container-home{

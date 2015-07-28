@@ -8,3 +8,17 @@ ul.widget-banner-block {
 .widget.widget-banner {
     margin-bottom: 20px;
 }
+
+.panel-body {
+    padding: 0px;
+}
+
+.side-heading{
+    margin-bottom: 0px;
+}
+.side-heading a {
+    color: #fffffe;
+}
+.panel-heading {
+   padding: 0px;
+}

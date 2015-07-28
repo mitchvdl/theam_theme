@@ -1,0 +1,31 @@
+<?php
+/**
+ * Category left navigation
+ *
+ * @see Mage_Catalog_Block_Navigation
+ */
+?>
+<?php if (!Mage::registry('current_category')) return ?>
+<?php $_categories = $this->getCurrentChildCategories() ?>
+<?php $_count = is_array($_categories)?count($_categories):$_categories->count(); ?>
+<?php if($_count): ?>
+<div class="block block-layered-nav block-layered-nav--no-filters panel-group" id="categories" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headCategories">
+            <h3 class="side-heading">
+                <a role="button" data-toggle="collapse" data-parent="#categories" href="#collapseCategories" aria-expanded="true" aria-controls="collapseOne" ><?php echo $this->__('Categories') ?></a>
+            </h3>
+        </div>
+        <div id="collapseCategories" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headCategories">
+            <div class="panel-body list-group categories">
+                <?php foreach ($_categories as $_category): if(!$_category->getIsActive()) continue; ?>
+                    <a href="<?php echo $this->getCategoryUrl($_category) ?>"
+                       class="list-group-item <?php if ($this->isCategoryActive($_category)): ?>current<?php endif; ?>">
+                        <i class="fa fa-chevron-right"></i> <?php echo $this->escapeHtml($_category->getName()) ?> <span class="count">(<?php echo $_category->getProductCount() ?>)</span>
+                    </a>
+                <?php endforeach ?>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
