@@ -1,0 +1,8 @@
+<div class="widget widget-banner">
+    <?php $bannersContent =  $this->getBannersContent() ?>
+    <ul class="widget-banner-block" id="banner-<?php echo implode('-', array_keys($bannersContent));?>">
+    <?php foreach ($bannersContent as $bannerId => $content): ?>
+        <li><?php echo $content?></li>
+    <?php endforeach; ?>
+    </ul>
+</div>

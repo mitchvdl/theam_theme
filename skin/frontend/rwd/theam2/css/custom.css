@@ -1,0 +1,10 @@
+ul.widget-banner-block {
+    font-size: 0;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.widget.widget-banner {
+    margin-bottom: 20px;
+}

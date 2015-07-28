@@ -49,9 +49,16 @@ foreach ($children as $child) {
     $outermostClassCode = 'level'. $childLevel;
     $_hasChildren = ($child->hasChildren()) ? 'has-children' : '';
 
-    $html .= '<li '. $this->_getRenderedMenuItemAttributes($child) .'>';
+    if ( !$child->hasChildren() ) {
+        $html .= '<li '. $this->_getRenderedMenuItemAttributes($child) .'>';
+        $html .= '<a href="'. $child->getUrl() .'" class="'. $outermostClassCode .' '. $_hasChildren .'">'. $this->escapeHtml($this->__($child->getName())) .'</a>';
+        continue;
+    }
 
-    $html .= '<a href="'. $child->getUrl() .'" class="'. $outermostClassCode .' '. $_hasChildren .'">'. $this->escapeHtml($this->__($child->getName())) .'</a>';
+    $html .= '<li '. $this->_getRenderedMenuItemAttributes($child) .' class="dropdown">';
+
+
+    $html .= '<a href="'. $child->getUrl() .'" class="'. $outermostClassCode .' '. $_hasChildren .' dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10">'. $this->escapeHtml($this->__($child->getName())) .'</a>';
 
     if (!empty($childrenWrapClass)) {
         $html .= '<div class="'. $childrenWrapClass .'">';
@@ -60,12 +67,12 @@ foreach ($children as $child) {
     $nextChildLevel = $childLevel + 1;
 
     if (!empty($_hasChildren)) {
-        $html .= '<ul class="level'. $childLevel .'">';
-        $html .=     '<li class="level'. $nextChildLevel .'">';
-        $html .=         '<a class="level'. $nextChildLevel .'" href="'. $child->getUrl() .'">';
-        $html .=             $this->__('View All ') . $this->escapeHtml($this->__($child->getName()));
-        $html .=         '</a>';
-        $html .=     '</li>';
+        $html .= '<ul class="level'. $childLevel .' dropdown-menu" role="menu">';
+//        $html .=     '<li class="level'. $nextChildLevel .'">';
+//        $html .=         '<a  tabindex="-1" class="level'. $nextChildLevel .'" href="'. $child->getUrl() .'">';
+//        $html .=             $this->__('View All ') . $this->escapeHtml($this->__($child->getName()));
+//        $html .=         '</a>';
+//        $html .=     '</li>';
         $html .=     $this->render($child, $childrenWrapClass);
         $html .= '</ul>';
     }

@@ -63,15 +63,6 @@
                 <action method="addItem"><type>skin_js</type><name>js/html5shiv.js</name><params/><if><![CDATA[<!--[if (lte IE 9) | (IEMobile)]><!-->]]></if></action>
                 <action method="addItem"><type>skin_js</type><name>js/respond.min.js</name><params/><if><![CDATA[<!--[if (lte IE 9) | (IEMobile)]><!-->]]></if></action>
 
-
-                <action method="addItem"><type>skin_js</type><name>js/bootstrap.min.js</name><params/></action>
-                <action method="addItem"><type>skin_js</type><name>js/bootstrap-hover-dropdown.min.js</name><params/></action>
-                <action method="addItem"><type>skin_js</type><name>js/jquery.magnific-popup.min.js</name><params/></action>
-                <action method="addItem"><type>skin_js</type><name>js/owl.carousel.min.js</name><params/></action>
-                <action method="addItem"><type>skin_js</type><name>js/custom.js</name><params/></action>
-
-
-
                 <!-- Sets viewport meta tag using text block -->
                 <block type="core/text" name="head.viewport">
                     <action method="setText"><text><![CDATA[<meta name="viewport" content="initial-scale=1.0, width=device-width" />]]>&#10;</text></action>
@@ -110,6 +101,11 @@
                 <label>Left Column</label>
             </block>
 
+            <block type="page/html_wrapper" name="content.banner" as="banner" translate="label">
+                <label>Page Banner</label>
+                <action method="setElementClass"><value>banner-before-content</value></action>
+            </block>
+
             <block type="core/messages" name="global_messages" as="global_messages"/>
             <block type="core/messages" name="messages" as="messages"/>
 
@@ -146,6 +142,22 @@
             <block type="core/text_list" name="before_body_end" as="before_body_end" translate="label">
                 <label>Page Bottom</label>
                 <block type="page/html_cookieNotice" name="global_cookie_notice" as ="global_cookie_notice" template="page/html/cookienotice.phtml" before="-" />
+
+<!--
+                <action method="addItem"><type>skin_js</type><name>js/bootstrap.min.js</name><params/></action>
+                <action method="addItem"><type>skin_js</type><name>js/bootstrap-hover-dropdown.min.js</name><params/></action>
+                <action method="addItem"><type>skin_js</type><name>js/jquery.magnific-popup.min.js</name><params/></action>
+                <action method="addItem"><type>skin_js</type><name>js/owl.carousel.min.js</name><params/></action>
+                <action method="addItem"><type>skin_js</type><name>js/custom.js</name><params/></action>
+                -->
+            </block>
+            <block type="theam_page/html_footer" name="before_body_end_footer" as="before_body_end_footer" translate="label">
+                <label>JS footer MERGED footer possibilities</label>
+                <action method="addItem"><type>skin_js</type><name>js/bootstrap.min.js</name><params/></action>
+                <action method="addItem"><type>skin_js</type><name>js/bootstrap-hover-dropdown.min.js</name><params/></action>
+                <action method="addItem"><type>skin_js</type><name>js/jquery.magnific-popup.min.js</name><params/></action>
+                <action method="addItem"><type>skin_js</type><name>js/owl.carousel.min.js</name><params/></action>
+                <action method="addItem"><type>skin_js</type><name>js/custom.js</name><params/></action>
             </block>
         </block>
 

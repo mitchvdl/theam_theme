@@ -1,42 +1,97 @@
 <?php
 /**
- * Magento Enterprise Edition
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Magento Enterprise Edition License
- * that is bundled with this package in the file LICENSE_EE.txt.
- * It is also available through the world-wide-web at this URL:
- * http://www.magentocommerce.com/license/enterprise-edition
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magentocommerce.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magentocommerce.com for more information.
- *
- * @category    design
- * @package     rwd_default
- * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
- * @license     http://www.magentocommerce.com/license/enterprise-edition
- */
-?>
-<?php
-/**
  * Top menu for store
  *
  * @see Mage_Page_Block_Html_Topmenu
  */
 ?>
 <?php $_menu = $this->getHtml('level-top') ?>
-
 <?php if($_menu): ?>
-    <nav id="nav">
-        <ol class="nav-primary">
-            <?php echo $_menu ?>
-        </ol>
-    </nav>
+<!-- Main Header Ends -->
+<nav id="main-menu" class="navbar" role="navigation">
+    <div class="container">
+        <!-- Nav Header Starts -->
+        <div class="navbar-header">
+            <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-cat-collapse">
+                <span class="sr-only"><?php echo $this->__('Toggle Navigation'); ?></span>
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <!-- Nav Header Ends -->
+        <!-- Navbar Cat collapse Starts -->
+        <div class="collapse navbar-collapse navbar-cat-collapse">
+            <ul class="nav navbar-nav">
+                <?php echo $_menu ?>
+                <!--
+                <li><a href="category-list.html">Living Room</a></li>
+                <li class="dropdown">
+                    <a href="category-list.html" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10">
+                        Dining Room
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a tabindex="-1" href="#">Wodden Chairs</a></li>
+                        <li><a tabindex="-1" href="#">Glass Table</a></li>
+                        <li><a tabindex="-1" href="#">Softwood Chairs</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="category-list.html" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10">Bed Room </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-inner">
+                            <ul class="list-unstyled">
+                                <li class="dropdown-header">Sub Category</li>
+                                <li><a tabindex="-1" href="#">item 1</a></li>
+                                <li><a tabindex="-1" href="#">item 2</a></li>
+                                <li><a tabindex="-1" href="#">item 3</a></li>
+                            </ul>
+                            <ul class="list-unstyled">
+                                <li class="dropdown-header">Sub Category</li>
+                                <li><a tabindex="-1" href="#">item 1</a></li>
+                                <li><a tabindex="-1" href="#">item 2</a></li>
+                                <li><a tabindex="-1" href="#">item 3</a></li>
+                            </ul>
+                            <ul class="list-unstyled">
+                                <li class="dropdown-header">Sub Category</li>
+                                <li><a tabindex="-1" href="#">item 1</a></li>
+                                <li><a tabindex="-1" href="#">item 2</a></li>
+                                <li><a tabindex="-1" href="#">item 3</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="category-list.html">Acent Chairs </a></li>
+                <li><a href="category-list.html">Couches</a></li>
+                <li><a href="category-list.html">Kids World </a></li>
+                <li><a href="category-list.html">mattresses </a></li>
+                <li><a href="category-list.html">Center Tables </a></li>
+                <li><a href="category-list.html">Tea Stands </a></li>
+                <li class="dropdown">
+                    <a href="category-list.html" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10">
+                        Pages
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a tabindex="-1" href="index.html">Home</a></li>
+                        <li><a tabindex="-1" href="about.html">About</a></li>
+                        <li><a tabindex="-1" href="category-list.html">Category List</a></li>
+                        <li><a tabindex="-1" href="category-grid.html">Category Grid</a></li>
+                        <li><a tabindex="-1" href="product.html">Product</a></li>
+                        <li><a tabindex="-1" href="product-full.html">Product Full Width</a></li>
+                        <li><a tabindex="-1" href="cart.html">Cart</a></li>
+                        <li><a tabindex="-1" href="login.html">Login</a></li>
+                        <li><a tabindex="-1" href="compare.html">Compare Products</a></li>
+                        <li><a tabindex="-1" href="typography.html">Typography</a></li>
+                        <li><a tabindex="-1" href="register.html">Register</a></li>
+                        <li><a tabindex="-1" href="contact.html">Contact</a></li>
+                        <li><a tabindex="-1" href="404.html">404</a></li>
+                    </ul>
+                </li>
+                -->
+            </ul>
+        </div>
+        <!-- Navbar Cat collapse Ends -->
+    </div>
+</nav>
+<!-- Main Menu Ends -->
+</header>
+<!-- Header Section Ends -->
 <?php endif ?>

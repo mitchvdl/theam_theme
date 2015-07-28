@@ -428,27 +428,27 @@ hr{
 /* Slider Section Styles Starts */
 
 	.slider{
-		margin-bottom:30px;
+		/*margin-bottom:30px;*/
 		border-bottom:1px solid #c7c7c7;
 	}
-	#main-carousel .carousel-control.left, 
-	#main-carousel .carousel-control.right {
+	.main-carousel .carousel-control.left,
+	.main-carousel .carousel-control.right {
 		background:none;
 		color:#292d30;
 	}
-	#main-carousel .carousel-control:hover.left, 
-	#main-carousel .carousel-control:hover.right {
+	.main-carousel .carousel-control:hover.left,
+	.main-carousel .carousel-control:hover.right {
 		color:#967e4b;
 	}
-	#main-carousel .carousel-indicators{
+	.main-carousel .carousel-indicators{
 	}
-	#main-carousel .carousel-indicators li {
+	.main-carousel .carousel-indicators li {
 		width:17px;
 		height:17px;
 		background-color:#292d30;
 		margin-right:10px;
 	}
-	#main-carousel .carousel-indicators .active {
+	.main-carousel .carousel-indicators .active {
 		width:18px;
 		height:18px;
 		background-color:#967e4b;

@@ -1,0 +1,12 @@
+<div class="slider widget widget-banner">
+
+    <div id="main-carousel" class="carousel slide" data-ride="carousel">
+
+        <?php $bannersContent =  $this->getBannersContent() ?>
+        <ul>
+            <?php foreach ($bannersContent as $bannerId => $content): ?>
+                <li><?php echo $content?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</div>
