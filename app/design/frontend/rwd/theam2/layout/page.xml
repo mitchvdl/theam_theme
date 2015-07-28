@@ -3,7 +3,6 @@
     <!--
     Default layout, loads most of the pages
     -->
-
     <default translate="label" module="page">
         <label>All Pages</label>
         <block type="page/html" name="root" output="toHtml" template="page/3columns.phtml">
@@ -28,7 +27,8 @@
                 <action method="removeItem"><type>skin_js</type><name>js/ie6.js</name></action>
 
                 <!-- Add vendor dependencies -->
-                <action method="addItem"><type>skin_js</type><name>js/jquery-1.11.1.min.js</name></action>
+                <!--<action method="addItem"><type>skin_js</type><name>js/jquery-1.11.1.min.js</name></action>-->
+                <action method="addItem"><type>skin_js</type><name>js/lib/jquery-1.10.2.min.js</name></action>
                 <action method="addItem"><type>skin_js</type><name>js/jquery-migrate-1.2.1.min.js</name></action>
                 <action method="addItem"><type>skin_js</type><name>js/lib/modernizr.custom.min.js</name></action>
                 <action method="addItem"><type>skin_js</type><name>js/lib/selectivizr.js</name></action>
@@ -132,6 +132,9 @@
                 </block>
                 <block type="page/template_links" name="footer_links2" as="footer_links2" template="page/template/links.phtml">
                     <action method="setTitle"><title>Account</title></action>
+                </block>
+                <block type="cms/block" name="social_media">
+                    <action method="setBlockId"><block_id>footer-social-media</block_id></action>
                 </block>
                 <!-- This static block can be created and populated in admin. The footer_links cms block can be used as a starting point. -->
                 <!--<block type="cms/block" name="footer_social_links">
