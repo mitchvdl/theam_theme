@@ -1,0 +1,48 @@
+<?php
+/**
+ * Category view template
+ *
+ * @see Mage_Catalog_Block_Category_View
+ */
+?>
+<?php
+    $_helper    = $this->helper('catalog/output');
+    /** @var Mage_Category_Model_Category $_category */
+    $_category  = $this->getCurrentCategory();
+    $_imgHtml   = '';
+    if ($_imgUrl = $_category->getThumbnail()) {
+        $_imgHtml = '<p class="category-image"><img src="'. Mage::getBaseUrl('media').'catalog/category/' . $_imgUrl.'" alt="'.$this->escapeHtml($_category->getName()).'" title="'.$this->escapeHtml($_category->getName()).'" class="img-responsive img-thumbnail"/></p>';
+        $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
+    }
+?>
+<div class="main-heading2 page-title category-title">
+    <?php if($this->IsRssCatalogEnable() && $this->IsTopCategory()): ?>
+        <a href="<?php echo $this->getRssLink() ?>" class="link-rss"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
+    <?php endif; ?>
+    <h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
+</div>
+<div class="row cat-intro">
+    <?php if($_imgUrl): ?>
+    <div class="col-sm-3">
+        <?php echo $_imgHtml ?>
+    </div>
+    <?php endif; ?>
+    <?php if($_description=$this->getCurrentCategory()->getDescription()): ?>
+        <div class="col-sm-9 cat-body category-description std">
+            <?php echo $_helper->categoryAttribute($_category, $_description, 'description') ?>
+        </div>
+    <?php endif; ?>
+</div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
+
+<?php if($this->isContentMode()): ?>
+    <?php echo $this->getCmsBlockHtml() ?>
+
+<?php elseif($this->isMixedMode()): ?>
+    <?php echo $this->getCmsBlockHtml() ?>
+    <?php echo $this->getProductListHtml() ?>
+
+<?php else: ?>
+    <?php echo $this->getProductListHtml() ?>
+<?php endif; ?>
