@@ -22,3 +22,34 @@ ul.widget-banner-block {
 .panel-heading {
    padding: 0px;
 }
+
+.product-col .price{
+    padding:10px 0;
+}
+.product-col .price .price-tax{
+    font-size:14px;
+    color:#212121;
+    text-transform:uppercase;
+}
+.product-col .price span.price-new{
+    color:#967e4b;
+    font-size:24px;
+    padding-right:5px;
+}
+.product-col .price span.price-old{
+    font-size:18px;
+    color:#7e7e7e;
+    text-decoration:line-through;
+}
+
+.product-col .btn-wishlist,
+.product-col .btn-compare{
+    color:#967e4b;
+    background:#fff;
+    margin-left:0px;
+    border:1px solid #967e4b;
+}
+
+.products-grid .product-col {
+    min-height: 450px;
+}

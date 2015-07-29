@@ -1,0 +1,89 @@
+<?php
+/**
+ * Catalog advanced search form
+ *
+ * @see Mage_CatalogSearch_Block_Advanced_Form
+ */
+?>
+<?php $maxQueryLength= $this->helper('catalogsearch')->getMaxQueryLength();?>
+
+<h1 class="main-heading text-center"><?php echo $this->__('Catalog Advanced Search') ?></h1>
+
+<div class="panel panel-smart">
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+    <div class="fieldset advanced-search">
+
+        <div class="panel-heading page-title">
+            <h2 class="panel-title"><?php echo $this->__('Search Settings') ?></h2>
+        </div>
+
+        <div class="panel-body form-list" id="advanced-search-list">
+            <form action="<?php echo $this->getSearchPostUrl() ?>" method="get" id="form-validate" role="form" class="form-horizontal">
+            <?php foreach ($this->getSearchableAttributes() as $_attribute): ?>
+            <?php $_code = $_attribute->getAttributeCode() ?>
+            <div class="form-group row">
+            <div class="col-xs-12 col-sm-8">
+                <label for="<?php echo $_code ?>" class="col-sm-2 control-label"><?php echo $this->getAttributeLabel($_attribute) ?></label>
+                <?php switch($this->getAttributeInputType($_attribute)):
+                    case 'number': ?>
+                    <div class="input-range col-sm-10">
+                        <input type="text" pattern="\d*" name="<?php echo $_code ?>[from]" value="<?php echo $this->escapeHtml($this->getAttributeValue($_attribute, 'from')) ?>" id="<?php echo $_code ?>" title="<?php echo $this->escapeHtml($this->getAttributeLabel($_attribute)) ?>" class="input-text validate-number form-control" maxlength="<?php echo $maxQueryLength;?>" />
+                        <span class="separator">-</span>
+                        <input type="text" pattern="\d*" name="<?php echo $_code ?>[to]" value="<?php echo $this->escapeHtml($this->getAttributeValue($_attribute, 'to')) ?>" id="<?php echo $_code ?>_to" title="<?php echo $this->escapeHtml($this->getAttributeLabel($_attribute)) ?>" class="input-text validate-number form-control" maxlength="<?php echo $maxQueryLength;?>" />
+                    </div>
+                    <?php break;
+                    case 'price': ?>
+                        <div class="input-range col-sm-4">
+                            <input name="<?php echo $_code ?>[from]" value="<?php echo $this->escapeHtml($this->getAttributeValue($_attribute, 'from')) ?>" id="<?php echo $_code ?>" title="<?php echo $this->escapeHtml($this->getAttributeLabel($_attribute)) ?>"  class="input-text validate-number form-control" type="text" pattern="\d*" maxlength="<?php echo $maxQueryLength;?>" />
+                        </div>
+                        <div class="input-range col-sm-1">
+                            <span class="separator">-</span>
+                        </div>
+                        <div class="input-range col-sm-4">
+                            <input name="<?php echo $_code ?>[to]" value="<?php echo $this->escapeHtml($this->getAttributeValue($_attribute, 'to')) ?>" id="<?php echo $_code ?>_to" title="<?php echo $this->escapeHtml($this->getAttributeLabel($_attribute)) ?>"  class="input-text validate-number form-control" type="text" pattern="\d*" maxlength="<?php echo $maxQueryLength;?>" />
+                            <small></small>
+                        </div>
+                        <div class="input-range col-sm-1">
+                            <small><span class="separator">(<?php echo $this->getCurrency($_attribute); ?>)</span></small>
+                        </div>
+                    <?php break;
+                    case 'select': ?>
+                        <div class="input-box col-sm-10">
+                            <?php echo $this->getAttributeSelectElement($_attribute, 'form-control') ?>
+                        </div>
+                    <?php break;
+                    case 'yesno': ?>
+                        <?php echo $this->getAttributeYesNoElement($_attribute, 'form-control') ?>
+                    <?php break;
+                    case 'date': ?>
+                    <div class="input-range col-sm-10">
+                        <?php echo $this->getDateInput($_attribute, 'from', 'form-control') ?>
+                        <span class="separator">-</span>
+                        <?php echo $this->getDateInput($_attribute, 'to', 'form-control') ?>
+                    </div>
+                    <?php break;
+                    default: ?>
+                    <div class="input-box col-sm-10">
+                        <input type="text" name="<?php echo $_code ?>" id="<?php echo $_code ?>" value="<?php echo $this->escapeHtml($this->getAttributeValue($_attribute)) ?>" title="<?php echo $this->escapeHtml($this->getAttributeLabel($_attribute)) ?>"  class="input-text <?php echo $this->getAttributeValidationClass($_attribute) ?> form-control" maxlength="<?php echo $maxQueryLength;?>" />
+                    </div>
+                <?php endswitch; ?>
+            </div>
+            </div>
+            <?php endforeach; ?>
+                <div class="row">
+                <div class="col-xs-12 col-sm-8">
+                    <div class="buttons-set col-sm-offset-2 col-sm-10">
+                        <button type="submit" title="<?php echo $this->__('Search') ?>" class="button btn btn-black text-uppercase"><span><span><?php echo $this->__('Search') ?></span></span></button>
+                    </div>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+<script type="text/javascript">
+//<![CDATA[
+    var dataForm = new VarienForm('form-validate', true);
+//]]>
+</script>
+</div>
