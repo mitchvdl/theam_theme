@@ -1,0 +1,85 @@
+<div class="col-xs-12 content fieldset panel panel-smart login">
+    <div class="panel-heading">
+        <h2><?php echo $this->__('Create an Account') ?></h2>
+    </div>
+    <div class="panel-body">
+        <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-validate" class="scaffold-form form-horizontal" enctype="multipart/form-data">
+            <?php echo $this->getBlockHtml('formkey'); ?>
+
+            <div class="form-group">
+                <label class="sr-only"><?php echo $this->__('Instructions') ?></label>
+                <div class="col-xs-12">
+                    <p><?php echo $this->__('Please enter the following information to create your account.') ?></p>
+                </div>
+            </div>
+
+            <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getFormData())->setForceUseCustomerAttributes(true)->toHtml() ?>
+
+            <div class="form-group">
+                <label for="email_address" class="required col-sm-2"><em>*</em><?php echo $this->__('Email Address') ?></label>
+                <div class="col-sm-10">
+                    <input type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="email" id="email_address" value="<?php echo $this->escapeHtml($this->getFormData()->getEmail()) ?>" title="<?php echo $this->__('Email Address') ?>" class="form-control input-text validate-email required-entry" placeholder="<?php echo $this->__('john.doe@example.com'); ?>" />
+                </div>
+
+            </div>
+
+            <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
+            <?php if ($_dob->isEnabled()): ?>
+                <li><?php echo $_dob->setDate($this->getFormData()->getDob())->toHtml() ?></li>
+            <?php endif ?>
+            <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
+            <?php if ($_taxvat->isEnabled()): ?>
+                <li><?php echo $_taxvat->setTaxvat($this->getFormData()->getTaxvat())->toHtml() ?></li>
+            <?php endif ?>
+            <?php $_gender = $this->getLayout()->createBlock('customer/widget_gender') ?>
+            <?php if ($_gender->isEnabled()): ?>
+                <li><?php echo $_gender->setGender($this->getFormData()->getGender())->toHtml() ?></li>
+            <?php endif ?>
+
+
+<?php /*
+            <div class="form-group">
+                <label for="<?php echo $this->getFieldId('firstname')?>" class="required control-label col-sm-2"><em>*</em><?php echo $this->getStoreLabel('firstname') ?></label>
+                <div class="col-sm-10">
+                    <input type="text" id="<?php echo $this->getFieldId('firstname')?>" name="<?php echo $this->getFieldName('firstname')?>" value="<?php echo $this->escapeHtml($this->getObject()->getFirstname()) ?>" title="<?php echo $this->getStoreLabel('firstname') ?>" maxlength="255" class="form-control input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('firstname') ?>" <?php echo $this->getFieldParams() ?> />
+                </div>
+            </div>
+*/ ?>
+            <div class="form-group">
+                <label for="password" class="required col-sm-2"><em>*</em><?php echo $this->__('Password') ?></label>
+                <div class="col-sm-10">
+                    <input type="password" name="password" id="password" title="<?php echo $this->__('Password') ?>" class="form-control input-text required-entry validate-password" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="confirmation" class="required col-sm-2"><em>*</em><?php echo $this->__('Confirm Password') ?></label>
+                <div class="col-sm-10">
+                    <input type="password" name="confirmation" title="<?php echo $this->__('Confirm Password') ?>" id="confirmation" class="form-control input-text required-entry validate-cpassword" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <?php echo $this->getChildHtml('form.additional.info'); ?>
+            </div>
+            <div class="form-group">
+                <?php echo $this->getChildHtml('persistent.remember.me.tooltip'); ?>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-8">
+                    <div class="buttons-set col-sm-offset-2 col-sm-10">
+                        <button type="submit" title="<?php echo $this->__('Register') ?>" class="button btn btn-black text-uppercase"><span><span><?php echo $this->__('Register') ?></span></span></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript">
+        //<![CDATA[
+        var dataForm = new VarienForm('form-validate', true);
+        <?php if($this->getShowAddressFields()): ?>
+        new RegionUpdater('country', 'region', 'region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'zip');
+        <?php endif; ?>
+        //]]>
+    </script>
+</div>

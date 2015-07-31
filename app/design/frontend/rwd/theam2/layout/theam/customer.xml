@@ -27,7 +27,8 @@
 
     <customer_account_login>
         <reference name="customer.login.form.col.left">
-            <block type="customer/form_login" name="customer.form.block.new" template="persistent/customer/form/block/new.phtml"  before="-" />
+            <!--<block type="customer/form_login" name="customer.form.block.new" template="persistent/customer/form/block/new.phtml"  before="-" />-->
+            <block type="customer/form_register" name="customer.form.block.register" template="persistent/customer/form/block/register.phtml"  after="customer.form.block.new" />
         </reference>
 
         <reference name="customer.login.form.col.right">

@@ -6,13 +6,26 @@
  */
 /** @var $this Mage_Customer_Block_Form_Register */
 ?>
-<div class="account-create">
-    <div class="page-title">
-        <h1><?php echo $this->__('Create an Account') ?></h1>
+<h1 class="main-heading text-center"><?php echo $this->__('Create an Account') ?></h1>
+
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
+<div class="account-create row">
+    <div class="col-xs-12">
+        <?php echo $this->getChildHtml('form_fields_before')?>
     </div>
-    <?php echo $this->getChildHtml('form_fields_before')?>
-    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-    <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-validate" class="scaffold-form" enctype="multipart/form-data">
+
+    <div class="panel-heading">
+
+    </div>
+    <div class="panel-body">
+
+    </div>
+    <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-validate" class="scaffold-form form-horizontal" enctype="multipart/form-data">
+        <?php echo $this->getBlockHtml('formkey'); ?>
+
+
+
         <div class="fieldset">
             <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
             <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>" />
