@@ -61,6 +61,20 @@
             <div class="form-group">
                 <?php echo $this->getChildHtml('form.additional.info'); ?>
             </div>
+            <?php if ($this->isNewsletterEnabled()): ?>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10 col-md-4">
+                        <div class="checkbox">
+                            <label for="is_subscribed" content="" class="control-label">
+                                <input type="checkbox" name="is_subscribed" title="<?php echo $this->__('Sign Up for Newsletter') ?>" value="1" id="is_subscribed"<?php if($this->getFormData()->getIsSubscribed()): ?> checked="checked"<?php endif; ?> class="" />
+                                <?php echo $this->__('Sign Up for Newsletter') ?>
+                            </label>
+
+                        </div>
+                    </div>
+                </div>
+
+            <?php endif ?>
             <div class="form-group">
                 <?php echo $this->getChildHtml('persistent.remember.me.tooltip'); ?>
             </div>
@@ -72,6 +86,7 @@
                     </div>
                 </div>
             </div>
+
         </form>
     </div>
     <script type="text/javascript">
