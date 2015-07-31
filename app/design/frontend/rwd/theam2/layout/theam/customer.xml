@@ -2,7 +2,7 @@
 <layout version="0.1.0">
     <default>
         <reference name="head">
-            <action method="addCss"><stylesheet>css/socialconnect.css</stylesheet></action>
+
         </reference>
     </default>
     <customer_account_login>
@@ -27,7 +27,7 @@
 
     <customer_account_login>
         <reference name="customer.login.form.col.left">
-            <block type="core/template" name="form.block.new" template="persistent/customer/form/block/new.phtml" before="-" />
+            <block type="customer/form_login" name="customer.form.block.new" template="persistent/customer/form/block/new.phtml"  before="-" />
         </reference>
 
         <reference name="customer.login.form.col.right">
