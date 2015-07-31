@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/socialconnect.css</stylesheet></action>
+        </reference>
+    </default>
+    <customer_account_login>
+        <!-- Create reference handles so they can be used custom across the board -->
+        <reference name="customer_form_login">
+            <block type="core/text_list" name="customer.login.form.top" as="customer.login.form.top" translate="label">
+                <label>Customer Login Page ROW TOP</label>
+            </block>
+            <block type="core/text_list" name="customer.login.form.col.left" as="customer.login.form.col.left" translate="label">
+                <label>Customer Login Page Column LEFT</label>
+            </block>
+            <block type="core/text_list" name="customer.login.form.col.right" as="customer.login.form.col.right" translate="label">
+                <label>Customer Login Page Column RIGHT</label>
+            </block>
+
+            <block type="core/text_list" name="customer.login.form.bottom" as="customer.login.form.bottom" translate="label">
+                <label>Customer Login Page ROW BOTTOM</label>
+            </block>
+        </reference>
+    </customer_account_login>
+
+
+    <customer_account_login>
+        <reference name="customer.login.form.col.left">
+            <block type="core/template" name="form.block.new" template="persistent/customer/form/block/new.phtml" before="-" />
+        </reference>
+
+        <reference name="customer.login.form.col.right">
+            <block type="core/template" name="form.block.login" template="persistent/customer/form/block/login.phtml" before="-"  />
+            <block type="core/template" name="form.block.forgotpassword" template="persistent/customer/form/block/forgotpassword.phtml" after="form.block.login"  />
+        </reference>
+
+        <reference name="customer.login.form.top">
+
+        </reference>
+        <reference name="customer.login.form.bottom">
+
+        </reference>
+    </customer_account_login>
+</layout>

@@ -1,0 +1,29 @@
+<?php
+
+
+$types = array(
+    Mage_Core_Model_Message::ERROR,
+    Mage_Core_Model_Message::WARNING,
+    Mage_Core_Model_Message::NOTICE,
+    Mage_Core_Model_Message::SUCCESS
+);
+$html = '';
+foreach ($types as $type) {
+    if ( $messages = $this->getMessages($type) ) {
+        if ( !$html ) {
+            $html .= '<div class="messages">';
+        }
+        $html .= '<div class="' . $type . '-msg bs-callout bs-callout-' . $type . '">';
+
+        foreach ( $messages as $message ) {
+            $html.= '<p>';
+            $html.= ($this->_escapeMessageFlag) ? $this->escapeHtml($message->getText()) : $message->getText();
+            $html.= '</p>';
+        }
+        $html .= '</div>';
+    }
+}
+if ( $html) {
+    $html .= '</div>';
+}
+echo $html;

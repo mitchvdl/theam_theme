@@ -58,6 +58,7 @@
                 <action method="addItem"><type>skin_css</type><name>css/owl.carousel.css</name><params/></action>
                 <action method="addItem"><type>skin_css</type><name>css/style.css</name><params/></action>
                 <action method="addItem"><type>skin_css</type><name>css/responsive.css</name><params/></action>
+                <action method="addItem"><type>skin_css</type><name>css/error/messages.css</name><params/></action>
                 <action method="addItem"><type>skin_css</type><name>css/custom.css</name><params/></action>
 
 
@@ -108,8 +109,8 @@
                 <action method="setElementClass"><value>banner-before-content</value></action>
             </block>
 
-            <block type="core/messages" name="global_messages" as="global_messages"/>
-            <block type="core/messages" name="messages" as="messages"/>
+            <block type="theam_base/messages" name="global_messages" as="global_messages"/>
+            <block type="theam_base/messages" name="messages" as="messages"/>
 
             <block type="core/text_list" name="content" as="content" translate="label">
                 <label>Main Content Area</label>

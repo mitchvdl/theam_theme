@@ -1,0 +1,45 @@
+<div class="col-xs-12 content fieldset panel panel-smart login">
+    <div class="panel-heading">
+        <h2><?php echo $this->__('Already registered?') ?></h2>
+    </div>
+    <div class="panel-body">
+        <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form" class="form-inline row" role="form">
+            <?php echo $this->getBlockHtml('formkey'); ?>
+
+            <div class="form-group col-xs-12">
+                <label class="sr-only"><?php echo $this->__('Instructions') ?></label>
+                <p><?php echo $this->__('If you have an account with us, please log in.') ?></p>
+            </div>
+
+            <div class="form-group col-xs-12 col-md-5">
+                <label for="email" class="required sr-only"><em>*</em><?php echo $this->__('Email Address') ?></label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-at"></i></span>
+                    <input type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="login[username]" value="<?php echo $this->escapeHtml($this->getUsername()) ?>" id="email" class="input-text required-entry validate-email form-control" title="<?php echo $this->__('Email Address') ?>" />
+                </div>
+            </div>
+            <div class="form-group col-xs-12 col-md-5">
+                <label for="pass" class="required sr-only"><em>*</em><?php echo $this->__('Password') ?></label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    <input type="password" name="login[password]" class="input-text required-entry validate-password form-control" id="pass" title="<?php echo $this->__('Password') ?>" />
+                </div>
+            </div>
+            <div class="form-group col-xs-12 col-md-2">
+                <button type="submit" class="button btn btn-black" title="<?php echo $this->__('Login') ?>" name="send" id="send2"><?php echo $this->__('Login') ?></button>
+            </div>
+            <div class="form-group">
+                <?php echo $this->getChildHtml('form.additional.info'); ?>
+            </div>
+            <div class="form-group">
+                <?php //echo $this->getChildHtml('persistent.remember.me.tooltip'); ?>
+            </div>
+
+        </form>
+    </div>
+    <script type="text/javascript">
+        //<![CDATA[
+        var loginForm = new VarienForm('login-form', true);
+        //]]>
+    </script>
+</div>
