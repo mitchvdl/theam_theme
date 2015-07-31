@@ -1,0 +1,49 @@
+<?php
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div class="row product-info full">
+    <div class="col-sm-4 images-block">
+        <?php echo $this->getChildHtml('media') ?>
+
+    </div>
+    <div class="col-sm-8 product-details">
+        <div class="panel-smart">
+            <div class="product-name">
+                <h2><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h2>
+                <hr />
+            </div>
+
+            <?php if ($_product->getShortDescription()):?>
+                <div class="short-description">
+                    <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
+                </div>
+            <?php endif;?>
+
+            <!-- TODO: get from database -->
+            <ul class="list-unstyled manufacturer">
+                <li>
+                    <span>Brand:</span> Indian spices
+                </li>
+                <li><span>Model:</span> SKU012452</li>
+                <li><span>Reward Points:</span> 300</li>
+                <li>
+                    <span>Availability:</span> <strong class="label label-danger">Out Of Stock</strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
