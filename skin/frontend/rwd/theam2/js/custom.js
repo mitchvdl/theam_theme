@@ -33,6 +33,15 @@
 	$('.nav-tabs a').click(function (e) {
 	e.preventDefault();
 	$(this).tab('show');
-	});	
-	
+	});
+
+
+    /**
+     * HACK around the disappearing parent when using dropdown functionality.
+     */
+	$(document).on('hide.bs.dropdown', 'a',function (e) {
+        e.preventDefault();
+        $(this).show();
+	});
+
 })(jQuery);
