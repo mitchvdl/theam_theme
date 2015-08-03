@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layout version="1.0.0">
     <default>
-        <reference name="catalog.topnav">
-            <block type="theam_navigation/html_topmenu_renderer" name="catalog.topnav.renderer" template="page/html/topmenu/renderer.phtml"/>
+        <reference name="head">
+            <action method="addItem"><type>skin_css</type><name>css/navigation.min.css</name><params/></action>
+        </reference>
+        <reference name="topMenu">
+            <block type="theam_navigation/html_topmenu" name="catalog.topnav" template="navigation/page/html/topmenu.phtml">
+                <block type="theam_navigation/html_topmenu_renderer" name="catalog.topnav.renderer" template="navigation/page/html/topmenu/renderer.phtml"/>
+            </block>
+            <!--<block type="theam_navigation/html_topmenu_renderer" name="catalog.topnav.renderer" template="page/html/topmenu/renderer.phtml"/>-->
         </reference>
     </default>
 </layout>
