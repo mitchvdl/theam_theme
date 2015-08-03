@@ -2,6 +2,33 @@
 
 	"use strict";
 
+	// Prototype hack
+	var isBootstrapEvent = false;
+	if (window.jQuery) {
+		var all = jQuery('.dropdown, .tooltip, .model, .popover, .collapse');
+		jQuery.each(['hide.bs.dropdown',
+			'hide.bs.collapse',
+			'hide.bs.modal',
+			'hide.bs.tooltip',
+			'hide.bs.popover'], function(index, eventName) {
+			all.on(eventName, function( event ) {
+				isBootstrapEvent = true;
+			});
+		});
+	}
+	var originalHide = Element.hide;
+	Element.addMethods({
+		hide: function(element) {
+			if(isBootstrapEvent) {
+				isBootstrapEvent = false;
+				return element;
+			}
+			return originalHide(element);
+		}
+	});
+
+
+
 	//MAGNIFIC POPUP
 	$(document).ready(function() {
 		$('.images-block').magnificPopup({
@@ -33,15 +60,18 @@
 	$('.nav-tabs a').click(function (e) {
 	e.preventDefault();
 	$(this).tab('show');
+
 	});
 
 
     /**
      * HACK around the disappearing parent when using dropdown functionality.
      */
-	$(document).on('hide.bs.dropdown', 'a',function (e) {
-        e.preventDefault();
-        $(this).show();
-	});
+	//$(document).on('hide.bs.dropdown', 'a',function (e) {
+	//	console.log(e);
+     //   e.preventDefault();
+     //   $(this).show();
+     //   $(this).parent().show();
+	//});
 
 })(jQuery);

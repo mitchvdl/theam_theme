@@ -1,29 +1,4 @@
 <?php
-/**
- * Magento Enterprise Edition
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Magento Enterprise Edition License
- * that is bundled with this package in the file LICENSE_EE.txt.
- * It is also available through the world-wide-web at this URL:
- * http://www.magentocommerce.com/license/enterprise-edition
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magentocommerce.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magentocommerce.com for more information.
- *
- * @category    design
- * @package     rwd_default
- * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
- * @license     http://www.magentocommerce.com/license/enterprise-edition
- */
-
 /** @var Mage_Page_Block_Html_Topmenu_Renderer $this */
 /** @var Varien_Data_Tree_Node $menuTree */
 /** @var string $childrenWrapClass */
@@ -41,22 +16,28 @@ $parentPositionClass = $menuTree->getPositionClass();
 $itemPositionClassPrefix = $parentPositionClass ? $parentPositionClass . '-' : 'nav-';
 
 foreach ($children as $child) {
+    $topLink = '';
+
     $child->setLevel($childLevel);
     $child->setIsFirst($counter == 1);
     $child->setIsLast($counter == $childrenCount);
     $child->setPositionClass($itemPositionClassPrefix . $counter);
 
+
     $outermostClassCode = 'level'. $childLevel;
     $_hasChildren = ($child->hasChildren()) ? 'has-children' : '';
 
+
     if ( !$child->hasChildren() ) {
         $html .= '<li '. $this->_getRenderedMenuItemAttributes($child) .'>';
-        $html .= '<a href="'. $child->getUrl() .'" class="'. $outermostClassCode .' '. $_hasChildren .'">'. $this->escapeHtml($this->__($child->getName())) .'</a>';
+        $html .= '<a href="'. $child->getUrl() .'" class="'. $outermostClassCode .' '. $_hasChildren .'" tabindex="-1">'. $this->escapeHtml($this->__($child->getName())) .'</a></li>';
         continue;
     }
+    $child->setClass('dropdown');
+    $html .= '<li '. $this->_getRenderedMenuItemAttributes($child) .'>';
 
-    $html .= '<li '. $this->_getRenderedMenuItemAttributes($child) .' class="dropdown">';
 
+    $topLink = '';
 
     $html .= '<a href="'. $child->getUrl() .'" class="'. $outermostClassCode .' '. $_hasChildren .' dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10">'. $this->escapeHtml($this->__($child->getName())) .'</a>';
 
@@ -68,6 +49,10 @@ foreach ($children as $child) {
 
     if (!empty($_hasChildren)) {
         $html .= '<ul class="level'. $childLevel .' dropdown-menu" role="menu">';
+        $html .= '<li class="level'. $nextChildLevel .'">';
+        $html .= '<a href="'. $child->getUrl() .'" class="'. $outermostClassCode .' '. $_hasChildren .'"">'. $this->escapeHtml($this->__($child->getName())) .'</a>';
+        $html .= '</li>';
+
 //        $html .=     '<li class="level'. $nextChildLevel .'">';
 //        $html .=         '<a  tabindex="-1" class="level'. $nextChildLevel .'" href="'. $child->getUrl() .'">';
 //        $html .=             $this->__('View All ') . $this->escapeHtml($this->__($child->getName()));
