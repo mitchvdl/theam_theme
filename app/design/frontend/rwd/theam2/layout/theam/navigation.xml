@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0.0">
+    <default>
+        <reference name="catalog.topnav">
+            <block type="theam_navigation/html_topmenu_renderer" name="catalog.topnav.renderer" template="page/html/topmenu/renderer.phtml"/>
+        </reference>
+    </default>
+</layout>
