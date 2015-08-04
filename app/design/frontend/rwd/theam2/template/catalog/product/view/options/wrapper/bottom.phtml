@@ -1,0 +1,16 @@
+<div class="product-options-bottom">
+    <?php if ($this->hasRequiredOptions() && !$this->getHideRequiredNotice()):?>
+        <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+    <?php endif;?>
+    <hr />
+    <div class="price">
+        <span class="price-head"><?php echo $this->__('Price:'); ?></span>
+        <?php echo $this->getPriceHtml($this->getProduct(), false, '_clone'); ?>
+        <?php echo $this->getChildHtml('bundle_prices') ?>
+        <?php echo $this->getTierPriceHtml() ?>
+    </div>
+    <hr />
+    <?php //echo $this->getChildHtml('', true, true);?>
+    <?php echo $this->getChildHtml('product.info.addtocart'); ?>
+    <hr />
+</div>

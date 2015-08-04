@@ -1,0 +1,21 @@
+<?php $_product = $this->getProduct(); ?>
+<?php $buttonTitle = $this->__('Add to Cart'); ?>
+
+    <div class="add-to-cart form-group">
+        <?php if(false && $_product->isSaleable()): ?>
+        <?php if(!$_product->isGrouped()): ?>
+        <div class="qty-wrapper col-sm-offset-3 col-sm-9">
+            <label for="qty" class="control-label sr-only"><?php echo $this->__('Qty:') ?></label>
+            <input type="hidden" pattern="\d*" name="qty" id="qty" maxlength="12" value="<?php echo max($this->getProductDefaultQty() * 1, 1) ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
+        </div>
+        <?php endif; ?>
+        <div class="add-to-cart-buttons col-xs-12">
+            <button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart form-control" onclick="productAddToCartForm.submit(this)"><?php echo $buttonTitle ?></button>
+            <?php echo $this->getChildHtml('', true, true) ?>
+        </div>
+        <?php endif; ?>
+        <div class="add-to-cart-buttons col-xs-12">
+
+            <button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart form-control" onclick=""><?php echo $this->__('Contact us for availability') ?></button>
+        </div>
+    </div>

@@ -7,5 +7,12 @@
             <action method="addOptionRenderer"><type>select</type><block>theam_base/product_view_options_type_select</block><template>catalog/product/view/options/type/select.phtml</template></action>
             <action method="addOptionRenderer"><type>date</type><block>catalog/product_view_options_type_date</block><template>catalog/product/view/options/type/date.phtml</template></action>
         </reference>
+        <reference name="product.info.options.wrapper.bottom">
+            <action method="unsetChild"><block>product.info.sharing</block></action>
+            <action method="unsetCallChild"><child>prices</child></action>
+        </reference>
+        <reference name="product.info.container2">
+
+        </reference>
     </catalog_product_view>
 </layout>

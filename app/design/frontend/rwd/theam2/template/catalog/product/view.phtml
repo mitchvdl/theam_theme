@@ -48,8 +48,8 @@
 
             <hr />
 
-            <div class="price-info">
-                <span><?php echo $this->__('Prices starting from'); ?></span>
+            <div class="price">
+                <span class="price-head"><?php echo $this->__('Price:'); ?></span>
                 <?php echo $this->getPriceHtml($_product); ?>
                 <?php echo $this->getChildHtml('bundle_prices') ?>
                 <?php echo $this->getTierPriceHtml() ?>
@@ -61,12 +61,13 @@
 
             <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                 <hr />
-                <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+                <?php //echo $this->getChildChildHtml('container1', '', true, true) ?>
             <?php endif;?>
 
             <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                 <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
             <?php endif;?>
+
         </form>
     </div>
 </div>

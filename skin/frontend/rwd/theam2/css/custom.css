@@ -61,3 +61,30 @@ ul.widget-banner-block {
     min-height: 28px;
     .box-sizing(border-box);
 }
+
+.product-info .product-details .price {
+    display: inline;
+
+}
+.product-info .product-details .price-head {
+    padding-right:10px;
+    font-size:24px;
+    color:#212121;
+    text-transform:uppercase;
+}
+.product-info .product-details .price-tax{
+    padding-top:5px;
+    font-size:14px;
+    color:#212121;
+    text-transform:uppercase;
+}
+.product-info .product-details .regular-price .price {
+    color:#967e4b;
+    font-size:24px;
+    padding-right:5px;
+}
+.product-info .product-details .price-old{
+    font-size:18px;
+    color:#212121;
+    text-decoration:line-through;
+}
