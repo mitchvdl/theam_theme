@@ -8,7 +8,7 @@
         <block type="page/html" name="root" output="toHtml" template="page/3columns.phtml">
 
             <block type="page/html_head" name="head" as="head">
-                <action method="addJs"><script>prototype/prototype.js</script></action>
+                <action method="addJs" name="js.prototype"><script>prototype/prototype.js</script></action>
                 <action method="addJs"><script>lib/ccard.js</script></action>
                 <action method="addJs" name="js.validation.prototype"><script>prototype/validation.js</script></action>
                 <action method="addItem" after="js.validation.prototype"><type>skin_js</type><name>js/prototype/validation.js</name></action>

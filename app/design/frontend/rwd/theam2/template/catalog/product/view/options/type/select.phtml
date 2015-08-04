@@ -1,11 +1,11 @@
 <?php
 ?>
 
-<?php /* @var $this Mage_Catalog_Block_Product_View_Options_Type_Select */ ?>
+<?php /* @var $this Theam_Base_Block_Product_View_Options_Type_Select */ ?>
 <?php $_option = $this->getOption() ?>
 <div class="form-group">
-    <label class="col-sm-2 control-label<?php if ($_option->getIsRequire()) echo 'required' ?>"><?php if ($_option->getIsRequire()) echo '<em>*</em>' ?><?php echo  $this->escapeHtml($_option->getTitle()) ?></label>
-    <div class="col-sm-10">
+    <label class="col-sm-3 control-label <?php if ($_option->getIsRequire()) echo 'required' ?>"><?php if ($_option->getIsRequire()) echo '<em>*</em>' ?><?php echo  $this->escapeHtml($_option->getTitle()) ?></label>
+    <div class="col-sm-9">
         <?php echo $this->getValuesHtml() ?>
         <?php if ($_option->getIsRequire()): ?>
             <?php if ($_option->getType() == Mage_Catalog_Model_Product_Option::OPTION_TYPE_RADIO || $_option->getType() == Mage_Catalog_Model_Product_Option::OPTION_TYPE_CHECKBOX): ?>
