@@ -5,10 +5,11 @@
 	// Prototype hack
 	var isBootstrapEvent = false;
 	if (window.jQuery) {
-		var all = jQuery('.dropdown, .tooltip, .model, .popover, .collapse');
+		var all = jQuery('.dropdown, .tooltip, .model, .popover, .collapse, .tab-head');
 		jQuery.each(['hide.bs.dropdown',
 			'hide.bs.collapse',
 			'hide.bs.modal',
+			'hide.bs.tab',
 			'hide.bs.tooltip',
 			'hide.bs.popover'], function(index, eventName) {
 			all.on(eventName, function( event ) {
