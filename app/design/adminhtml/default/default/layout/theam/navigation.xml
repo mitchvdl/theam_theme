@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<layout version="0.1.0">
+
+    <adminhtml_theam_navigation_index>
+        <reference name="content">
+            <block type="theam_navigation/adminhtml_theam_navigation_menu" name="index.menu.navigation.container"/>
+        </reference>
+    </adminhtml_theam_navigation_index>
+
+    <adminhtml_theam_navigation_edit>
+        <reference name="content">
+            <block type="theam_navigation/adminhtml_theam_navigation_edit" name="edit.menu.navigation.container"/>
+        </reference>
+    </adminhtml_theam_navigation_edit>
+
+</layout>
