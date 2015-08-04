@@ -1,7 +1,7 @@
 <?php $_product = $this->getProduct(); ?>
 <?php $buttonTitle = $this->__('Add to Cart'); ?>
 
-    <div class="add-to-cart form-group">
+    <div class="add-to-cart">
         <?php if(false && $_product->isSaleable()): ?>
         <?php if(!$_product->isGrouped()): ?>
         <div class="qty-wrapper col-sm-offset-3 col-sm-9">
@@ -14,8 +14,8 @@
             <?php echo $this->getChildHtml('', true, true) ?>
         </div>
         <?php endif; ?>
-        <div class="add-to-cart-buttons col-xs-12">
+        <div class="add-to-cart-buttons">
 
-            <button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart form-control" onclick=""><?php echo $this->__('Contact us for availability') ?></button>
+
         </div>
     </div>
