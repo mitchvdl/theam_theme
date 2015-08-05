@@ -10,6 +10,7 @@ $catalogSearchHelper = $this->helper('catalogsearch');
             <input id="search-mini"
                    type="search"
                    class="form-control input-lg input-text"
+                   name="<?php echo $catalogSearchHelper->getQueryParamName() ?>"
                    value="<?php echo $catalogSearchHelper->getEscapedQueryText() ?>"
                    maxlength="<?php echo $catalogSearchHelper->getMaxQueryLength(); ?>"
                    placeholder="<?php echo $this->__('Search entire store here...') ?>"/>
