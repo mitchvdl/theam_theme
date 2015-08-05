@@ -134,7 +134,9 @@
             <a href="#tab-specification"><?php echo $this->__('Specification'); ?></a>
         </li>
         <li class="tab-head "><a href="#tab-ainfo"><?php echo $this->__('Additional Information'); ?></a></li>
+        <?php if ( Mage::getStoreConfigFlag('theam_review/advanced/is_frontend_enabled') ) : ?>
         <li class="tab-head "><a href="#tab-review"><?php echo $this->__('Review'); ?></a></li>
+        <?php endif; ?>
     </ul>
     <!-- Nav Tabs Ends -->
     <!-- Tab Content Starts -->
@@ -181,11 +183,13 @@
             </p>
         </div>
         <!-- Additional Information Ends -->
+        <?php if ( Mage::getStoreConfigFlag('theam_review/advanced/is_frontend_enabled') ) : ?>
         <!-- Review Starts -->
         <div class="tab-pane" id="tab-review">
             <?php echo $this->getChildHtml('review_form'); ?>
         </div>
         <!-- Review Ends -->
+        <?php endif; ?>
     </div>
     <!-- Tab Content Ends -->
 </div>
