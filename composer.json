@@ -1,0 +1,28 @@
+{
+  "name": "theam/theme",
+  "type": "magento-module",
+  "license":"OSL-3.0",
+  "description":"Theam Theme",
+  "authors":[
+    {
+      "name":"Mitch Vanderlinden",
+      "email":"mitchvdl@gmail.com"
+    }
+  ],
+  "extra": {
+    "map": [
+      [
+        "app/design/adminhtml/default/default/layout/theam/navigation.xml",
+        "app/design/adminhtml/default/default/layout/theam/navigation.xml"
+      ],
+      [
+        "app/design/frontend/rwd/theam2",
+        "app/design/frontend/rwd/theam2"
+      ],
+      [
+        "skin/frontend/rwd/theam2",
+        "skin/frontend/rwd/theam2"
+      ]
+    ]
+  }
+}
