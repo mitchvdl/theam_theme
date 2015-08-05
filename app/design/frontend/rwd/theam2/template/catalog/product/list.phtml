@@ -58,7 +58,7 @@
                                 <?php echo $_nameAfterChild->toHtml(); ?>
                             <?php endforeach; ?>
                         </div>
-                        <div class="description">
+                        <div class="description co">
                             <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
                             <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped ?>" class="link-learn"><?php echo $this->__('Learn More') ?></a>
                         </div>
@@ -66,11 +66,14 @@
                             <?php echo $this->getPriceHtml($_product, true) ?>
                         </div>
                         <div class="product-secondary">
+                            <a title="<?php echo $this->__('View Details') ?>" class="button" href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->__('View Details') ?></a>
+                        </div>
+                        <div class="product-secondary">
                             <div class="cart-button button-group add-to-links">
                                 <?php if($_product->isSaleable() && !$_product->canConfigure()): ?>
                                     <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart btn btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><?php echo $this->__('Add to Cart') ?> <i class="fa fa-shopping-cart"></i></button>
                                 <?php elseif($_product->isSaleable()): ?>
-                                    <a title="<?php echo $this->__('View Details') ?>" class="button" href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->__('View Details') ?></a>
+
                                 <?php else: ?>
                                     <p class="action availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
                                 <?php endif; ?>
@@ -81,6 +84,7 @@
                                 <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
                                     <button type="button" class="btn btn-compare" title="Compare"><a href="<?php echo $_compareUrl ?>" class="link-compare"><i class="fa fa-bar-chart-o"></i></a></button>
                                 <?php endif; ?>
+                                <button type="button" title="<?php echo $buttonTitle ?>" class="btn btn-cart" onclick=""><?php echo $this->__('Contact us for availability') ?></button>
                             </div>
                         </div>
                     </div>
@@ -100,9 +104,9 @@
         <?php $i=0; foreach ($_productCollection as $_product): ?>
             <div class="col-md-4 col-sm-6 item<?php if( ++$_iterator == sizeof($_productCollection) ): ?> last<?php endif; ?>">
                 <div class="product-col list clearfix">
-                    <div class="row">
+                    <div class="">
                         <?php // Product Image ?>
-                        <div class="col-xs-12">
+                        <div class="">
                             <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
                                 <?php /* Based on the native RWD styling, product images are displayed at a max of ~400px wide when viewed on a
                             one column page layout with four product columns from a 1280px viewport. For bandwidth reasons,
@@ -118,8 +122,8 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-xs-12">
+                    <div class="">
+                        <div class="">
                             <div class="product-primary">
                                 <?php $_productNameStripped = $this->stripTags($_product->getName(), null, true); ?>
                                 <h4 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></a></h4>
@@ -142,30 +146,36 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12">
+                    <div class="">
+                        <div class="">
                                 <?php echo $this->getPriceHtml($_product, true) ?>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-6">
+                    <div class="">
+                        <a title="<?php echo $this->__('View Details') ?>" class="button" href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->__('View Details') ?></a>
+                    </div>
+                    <div class="cart-button button-group add-to-links">
+                        <div class="">
                             <?php if($_product->isSaleable() && !$_product->canConfigure()): ?>
                                 <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart btn btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><?php echo $this->__('Book') ?> <i class="fa fa-shopping-cart"></i></button>
                             <?php elseif($_product->isSaleable()): ?>
-                                <a title="<?php echo $this->__('View Details') ?>" class="button" href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->__('View Details') ?></a>
+
                             <?php else: ?>
                                 <p class="action availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
                             <?php endif; ?>
                         </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3">
+                        <div class="">
                             <?php if ($this->helper('wishlist')->isAllow()) : ?>
                                 <button type="button" class="btn btn-wishlist" title="Wishlist"><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><i class="fa fa-heart"></i></a></button>
                             <?php endif; ?>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3">
+
+
                             <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
                                 <button type="button" class="btn btn-compare" title="Compare"><a href="<?php echo $_compareUrl ?>" class="link-compare"><i class="fa fa-bar-chart-o"></i></a></button>
                             <?php endif; ?>
+                        </div>
+                        <div class="button-group">
+                            <button type="button" title="<?php echo $buttonTitle ?>" class="btn btn-block btn-cart" onclick=""><?php echo $this->__('Contact us for availability') ?></button>
                         </div>
                     </div>
                 </div>
