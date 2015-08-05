@@ -67,7 +67,8 @@
             <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                 <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
             <?php endif;?>
-
+            <?php echo $this->getChildHtml('product.price.info.static.block'); ?>
+                <?php echo $this->getChildHtml('extrahint') ?>
         </form>
     </div>
 </div>
@@ -133,7 +134,7 @@
         <li class="tab-head ">
             <a href="#tab-specification"><?php echo $this->__('Specification'); ?></a>
         </li>
-        <li class="tab-head "><a href="#tab-ainfo"><?php echo $this->__('Additional Information'); ?></a></li>
+        <li class="tab-head "><a href="#tab-regulations"><?php echo $this->__('Voorschriften'); ?></a></li>
         <?php if ( Mage::getStoreConfigFlag('theam_review/advanced/is_frontend_enabled') ) : ?>
         <li class="tab-head "><a href="#tab-review"><?php echo $this->__('Review'); ?></a></li>
         <?php endif; ?>
@@ -152,10 +153,8 @@
         </div>
         <!-- Specification Ends -->
         <!-- Additional Information Starts -->
-        <div class="tab-pane" id="tab-ainfo">
-            <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
+        <div class="tab-pane" id="tab-regulations">
+            <?php echo $this->getChildHtml('product.regulations'); ?>
         </div>
         <!-- Additional Information Ends -->
         <?php if ( Mage::getStoreConfigFlag('theam_review/advanced/is_frontend_enabled') ) : ?>
