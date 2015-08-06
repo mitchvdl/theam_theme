@@ -167,6 +167,7 @@
                 <action method="addItem"><type>skin_js</type><name>js/jquery.magnific-popup.min.js</name><params/></action>
                 <action method="addItem"><type>skin_js</type><name>js/owl.carousel.min.js</name><params/></action>
                 <action method="addItem"><type>skin_js</type><name>js/custom.js</name><params/></action>
+                <action method="addItem"><type>skin_js</type><name>js/accountlinks.js</name><params/></action>
             </block>
         </block>
 
