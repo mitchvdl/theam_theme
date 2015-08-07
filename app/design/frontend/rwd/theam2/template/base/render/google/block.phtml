@@ -1,0 +1,38 @@
+<?php
+/** @var Theam_Base_Block_Render_Google_Map $this */
+?>
+
+<script type="text/javascript">
+//<![CDATA[
+(function($) {
+
+//    $("<?php echo $this->getMapBlock(); ?>").setStyle({
+//        'height': $("<?php echo $this->getMapWrapper(); ?>").getHeight();
+//    });
+    $("#<?php echo $this->getMapBlock(); ?>").height($("#<?php echo $this->getMapWrapper(); ?>").height());
+
+    function initialize($) {
+        var mapCanvas = document.getElementById('<?php echo $this->getMapBlock(); ?>');
+        var mapOptions = {
+//            center: new google.maps.LatLng(51.014733, 5.730851),
+            center: new google.maps.LatLng(<?php echo (float) $this->getLongitude();?>, <?php echo (float) $this->getLatitude();?>),
+            zoom: <?php echo $this->getZoomLevel(); ?>,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: mapOptions.center,
+            map: map,
+            title: '<?php echo $this->escapeHtml($this->getTitle());?>'
+        });
+    }
+
+    document.observe("dom:load", function () {
+
+    })
+    ;
+    google.maps.event.addDomListener(window, 'load', initialize);
+})(jQuery);
+//]]
+</script>
