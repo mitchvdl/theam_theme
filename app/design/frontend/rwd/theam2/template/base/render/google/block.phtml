@@ -1,0 +1,37 @@
+<?php
+/** @var Theam_Base_Block_Render_Google_Map $this */
+$mapVariable = sprintf('map_%s', $this->getMapVariable());
+?>
+
+<script type="text/javascript">
+//<![CDATA[
+(function($) {
+    $("#<?php echo $this->getMapBlock(); ?>").height($("#<?php echo $this->getMapWrapper(); ?>").height());
+
+    var gm<?php echo $mapVariable;?>;
+    function initialize($) {
+        var mapCanvas = document.getElementById('<?php echo $this->getMapBlock(); ?>');
+        var mapOptions = {
+//            center: new google.maps.LatLng(51.014733, 5.730851),
+            center: new google.maps.LatLng(<?php echo (float) $this->getLongitude();?>, <?php echo (float) $this->getLatitude();?>),
+            zoom: <?php echo $this->getZoomLevel(); ?>,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+
+        gm<?php echo $mapVariable;?> = new google.maps.Map(mapCanvas, mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: mapOptions.center,
+            map: gm<?php echo $mapVariable;?>,
+            title: '<?php echo $this->escapeHtml($this->getTitle());?>'
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+    google.maps.event.addDomListener(window, "resize", function() {
+        var center = gm<?php echo $mapVariable;?>.getCenter();
+        google.maps.event.trigger(gm<?php echo $mapVariable;?>, "resize");
+        gm<?php echo $mapVariable;?>.setCenter(center);
+    });
+})(jQuery);
+//]]
+</script>

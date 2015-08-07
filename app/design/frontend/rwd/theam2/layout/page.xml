@@ -126,6 +126,9 @@
             </block>
 
             <block type="page/html_footer" name="footer" as="footer" template="page/html/footer.phtml">
+                <block type="cms/block" name="footer.main.block">
+                    <action method="setBlockId"><block_id>footer-main</block_id></action>
+                </block>
                 <block type="page/html_wrapper" name="bottom.container" as="bottomContainer" translate="label">
                     <label>Page Footer</label>
                     <action method="setElementClass"><value>bottom-container</value></action>
@@ -164,6 +167,7 @@
                 <action method="addItem"><type>skin_js</type><name>js/jquery.magnific-popup.min.js</name><params/></action>
                 <action method="addItem"><type>skin_js</type><name>js/owl.carousel.min.js</name><params/></action>
                 <action method="addItem"><type>skin_js</type><name>js/custom.js</name><params/></action>
+                <action method="addItem"><type>skin_js</type><name>js/accountlinks.js</name><params/></action>
             </block>
         </block>
 

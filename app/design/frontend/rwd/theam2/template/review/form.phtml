@@ -1,0 +1,107 @@
+<div class=" form-add">
+
+    <form action="<?php echo $this->getAction() ?>" method="post" id="review-form" class="form-horizontal">
+        <h2><?php echo $this->__('Write Your Own Review') ?></h2>
+        <?php if ($this->getAllowWriteReviewFlag()): ?>
+
+        <?php echo $this->getBlockHtml('formkey'); ?>
+        <?php echo $this->getChildHtml('form_fields_before')?>
+
+
+        <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-name"><?php echo $this->__("What's your nickname?") ?> <em>*</em></label>
+            <div class="col-sm-10">
+                <input type="text" name="nickname" id="nickname_field" class="input-text required-entry form-control" value="<?php echo $this->escapeHtml($data->getNickname()) ?>" />
+            </div>
+        </div>
+        <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-title"><?php echo $this->__('Summary of Your Review') ?> <em>*</em></label>
+            <div class="col-sm-10">
+                <input type="text" name="title" id="input-title" class="input-text required-entry form-control" value="<?php echo $this->escapeHtml($data->getTitle()) ?>" />
+            </div>
+        </div>
+        <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-name"><?php echo $this->__('Let us know your thoughts') ?> <em>*</em></label>
+            <div class="col-sm-10">
+                <textarea name="detail" rows="5" id="input-details" class="input-text required-entry form-control"></textarea>
+                <div class="help-block">
+
+                </div>
+            </div>
+        </div>
+        <?php if( $this->getRatings() && $this->getRatings()->getSize()): ?>
+            <div class="form-group required">
+                <p class="col-sm-offset-2"><?php echo $this->__('How do you rate this product?') ?></p>
+
+            </div>
+
+
+            <?php foreach ($this->getRatings() as $_rating): ?>
+                <div class="form-group required">
+                <div class="">
+                    <label class="col-sm-2 control-label ratings"> <?php echo $this->escapeHtml($_rating->getRatingCode()) ?> <em class="required">*</em></label>
+                </div>
+                <div class="col-sm-10">
+                    <?php foreach ($_rating->getOptions() as $_option): ?>
+                        <label for="<?php echo $this->escapeHtml($_rating->getRatingCode()) ?>_<?php echo $_option->getValue() ?>" class="radio-inline"><input type="radio" name="ratings[<?php echo $_rating->getId() ?>]" id="<?php echo $this->escapeHtml($_rating->getRatingCode()) ?>_<?php echo $_option->getValue() ?>" value="<?php echo $_option->getId() ?>" /><?php echo $_option->getValue(); ?></label>
+                    <?php endforeach; ?>
+
+                </div>
+                </div>
+            <?php endforeach; ?>
+
+            </div>
+            <input type="hidden" name="validate_rating" class="validate-rating" value="" />
+
+
+
+
+
+        <?php endif; ?>
+        <div class="buttons">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" id="button-review" class="btn btn-main" title="<?php echo $this->__('Submit Review') ?>"><?php echo $this->__('Submit Review') ?></button>
+            </div>
+        </div>
+
+    </form>
+    <script type="text/javascript">
+    //<![CDATA[
+        var dataForm = new VarienForm('review-form');
+        Validation.addAllThese(
+        [
+               ['validate-rating', '<?php echo $this->__('Please select one of each of the ratings above') ?>', function(v) {
+                    var trs = $('product-review-table').select('tr');
+                    var inputs;
+                    var error = 1;
+
+                    for( var j=0; j < trs.length; j++ ) {
+                        var tr = trs[j];
+                        if( j > 0 ) {
+                            inputs = tr.select('input');
+
+                            for( i in inputs ) {
+                                if( inputs[i].checked == true ) {
+                                    error = 0;
+                                }
+                            }
+
+                            if( error == 1 ) {
+                                return false;
+                            } else {
+                                error = 1;
+                            }
+                        }
+                    }
+                    return true;
+                }]
+        ]
+        );
+    //]]>
+    </script>
+    <?php else: ?>
+    <p class="review-nologged" id="review-form">
+        <?php echo $this->__('Only registered users can write reviews. Please, <a href="%s">log in</a> or <a href="%s">register</a>', $this->getLoginLink(), Mage::helper('customer')->getRegisterUrl()) ?>
+    </p>
+    <?php endif ?>
+</div>

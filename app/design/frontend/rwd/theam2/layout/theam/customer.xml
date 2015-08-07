@@ -32,8 +32,8 @@
         </reference>
 
         <reference name="customer.login.form.col.right">
-            <block type="core/template" name="form.block.login" template="persistent/customer/form/block/login.phtml" before="-"  />
-            <block type="core/template" name="form.block.forgotpassword" template="persistent/customer/form/block/forgotpassword.phtml" after="form.block.login"  />
+            <block type="customer/form_login" name="form.block.login" template="persistent/customer/form/block/login.phtml" before="-"  />
+            <block type="customer/account_forgotpassword" name="form.block.forgotpassword" template="persistent/customer/form/block/forgotpassword.phtml" after="form.block.login"  />
         </reference>
 
         <reference name="customer.login.form.top">

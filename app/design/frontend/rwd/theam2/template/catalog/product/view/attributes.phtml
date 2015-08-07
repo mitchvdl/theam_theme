@@ -1,0 +1,31 @@
+<?php
+/**
+ * Product additional attributes template
+ *
+ * @see Mage_Catalog_Block_Product_View_Attributes
+ */
+?>
+<?php
+    $_helper = $this->helper('catalog/output');
+    $_product = $this->getProduct()
+?>
+<?php if($_additional = $this->getAdditionalData()): ?>
+    <table class="data-table table table-bordered" id="product-attribute-specs-table">
+        <col width="25%" />
+        <col />
+        <thead>
+        <tr>
+            <td colspan="2"><strong><?php echo $this->__('Name'); ?></strong></td>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($_additional as $_data): ?>
+            <tr>
+                <th><?php echo $this->escapeHtml($this->__($_data['label'])) ?></th>
+                <td><?php echo $_helper->productAttribute($_product, $_data['value'], $_data['code']) ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+    <script type="text/javascript">decorateTable('product-attribute-specs-table')</script>
+<?php endif;?>
