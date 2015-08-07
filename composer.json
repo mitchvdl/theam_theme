@@ -3,7 +3,6 @@
   "type": "magento-module",
   "license":"OSL-3.0",
   "description":"Theam Theme",
-  "version" : "1.0.0.0",
   "authors":[
     {
       "name":"Mitch Vanderlinden",
