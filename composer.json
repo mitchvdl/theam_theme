@@ -15,9 +15,6 @@
   },
   "minimum-stability": "dev",
   "extra": {
-    "branch-alias": {
-      "dev-master": "1.0-dev"
-    },
     "map": [
       [
         "app/design/adminhtml/default/default/layout/theam/navigation.xml",
