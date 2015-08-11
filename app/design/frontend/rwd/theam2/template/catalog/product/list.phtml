@@ -84,7 +84,7 @@
                                 <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
                                     <button type="button" class="btn btn-compare" title="Compare"><a href="<?php echo $_compareUrl ?>" class="link-compare"><i class="fa fa-bar-chart-o"></i></a></button>
                                 <?php endif; ?>
-                                <button type="button" title="<?php echo $buttonTitle ?>" class="btn btn-cart" onclick=""><?php echo $this->__('Contact us for availability') ?></button>
+                                <button type="button" title="<?php echo $this->__('Contact us for availability') ?>" class="btn btn-cart" onclick=""><?php echo $this->__('Contact us for availability') ?></button>
                             </div>
                         </div>
                     </div>
@@ -101,6 +101,7 @@
     <?php $_collectionSize = $_productCollection->count() ?>
     <?php $_columnCount = $this->getColumnCount(); ?>
     <div class="row products-grid products-grid--max-<?php echo $_columnCount; ?>-col">
+        <?php $_iterator = 0; ?>
         <?php $i=0; foreach ($_productCollection as $_product): ?>
             <div class="col-md-4 col-sm-6 item<?php if( ++$_iterator == sizeof($_productCollection) ): ?> last<?php endif; ?>">
                 <div class="product-col list clearfix">
@@ -175,7 +176,7 @@
                             <?php endif; ?>
                         </div>
                         <div class="button-group">
-                            <button type="button" title="<?php echo $buttonTitle ?>" class="btn btn-block btn-cart" onclick=""><?php echo $this->__('Contact us for availability') ?></button>
+                            <button type="button" title="<?php echo $this->__('Contact us for availability') ?>" class="btn btn-block btn-cart" onclick=""><?php echo $this->__('Contact us for availability') ?></button>
                         </div>
                     </div>
                 </div>
