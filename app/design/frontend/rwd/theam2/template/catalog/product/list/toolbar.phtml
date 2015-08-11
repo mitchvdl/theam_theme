@@ -40,9 +40,9 @@ $cssModes = ['list' => 'fa fa-th-list', 'grid' => 'fa fa-th'];
                     </div>
                     <div class="col-md-3 text-right sort-by-direction display">
                         <?php if($this->getCurrentDirection() == 'desc'): ?>
-                            <a href="<?php echo $this->getOrderUrl(null, 'asc') ?>" class="sort-by-switcher sort-by-switcher--desc" title="<?php echo $this->__('Set Ascending Direction') ?>"><i class="fa fa-caret-square-o-up" title="<?php echo $_label ?>"></i></a>
+                            <a href="<?php echo $this->getOrderUrl(null, 'asc') ?>" class="sort-by-switcher sort-by-switcher--desc" title="<?php echo $this->__('Set Ascending Direction') ?>"><i class="fa fa-caret-square-o-up" title="asc"></i></a>
                         <?php else: ?>
-                            <a href="<?php echo $this->getOrderUrl(null, 'desc') ?>" class="sort-by-switcher sort-by-switcher--asc" title="<?php echo $this->__('Set Descending Direction') ?>"><i class="fa fa-caret-square-o-down" title="<?php echo $_label ?>"></i></a>
+                            <a href="<?php echo $this->getOrderUrl(null, 'desc') ?>" class="sort-by-switcher sort-by-switcher--asc" title="<?php echo $this->__('Set Descending Direction') ?>"><i class="fa fa-caret-square-o-down" title="desc"></i></a>
                         <?php endif; ?>
                     </div>
                 </div>
