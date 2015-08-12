@@ -1,0 +1,36 @@
+<?php
+/**
+ * Category layered navigation
+ *
+ * @var Mage_Catalog_Block_Layer_View $this
+ */
+?>
+<?php if($this->canShowBlock()): ?>
+    <?php echo $this->getStateHtml() ?>
+    <?php if ($this->getLayer()->getState()->getFilters()): ?>
+        <div class="actions"><a href="<?php echo $this->getClearUrl() ?>"><?php echo $this->__('Clear All') ?></a></div>
+    <?php endif; ?>
+
+    <?php $_filters = $this->getFilters() ?>
+    <?php foreach ($_filters as $_filter): ?>
+        <?php if($_filter->getItemsCount()): ?>
+            <?php $id = 'filter-' . strtolower($_filter->getName()); ?>
+            <?php $cssName =  $this->escapeHtml(strtolower('filter-' . $_filter->getName())); ?>
+
+            <div class="block block-layered-nav block-layered-nav panel-group <?php echo $cssName; ?>" id="<?php echo $id; ?>" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="head<?php echo $id; ?>">
+                        <h3 class="side-heading">
+                            <a role="button" data-toggle="collapse" data-parent="#<?php echo $id; ?>" href="#collapse<?php echo $id; ?>" aria-expanded="true" aria-controls="collapseOne" ><?php echo $this->escapeHtml($_filter->getName()) ?></a>
+                        </h3>
+                    </div>
+                    <div id="collapse<?php echo $id; ?>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="head<?php echo $id; ?>">
+                        <div class="panel-body list-group content-<?php echo $cssName; ?>">
+                            <?php echo $_filter->getHtml() ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+    <?php endforeach; ?>
+<?php endif; ?>

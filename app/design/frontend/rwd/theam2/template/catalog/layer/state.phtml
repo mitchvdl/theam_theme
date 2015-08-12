@@ -1,0 +1,30 @@
+<?php
+/**
+ * Category layered navigation state
+ *
+ * @var Mage_Catalog_Block_Layer_State $this
+ */
+?>
+<?php $_filters = $this->getActiveFilters() ?>
+<?php if(!empty($_filters)): ?>
+    <div class="block block-layered-nav block-layered-nav-currently panel-group" id="current_filters" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headCurrentFilters">
+                <h3 class="side-heading">
+                    <a role="button" data-toggle="collapse" data-parent="#categories" href="#collapseCurrentFilters" aria-expanded="true" aria-controls="collapseOne" ><?php echo $this->__('Currently Shopping by:') ?></a>
+                </h3>
+            </div>
+            <div id="collapseCurrentFilters" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headCurrentFilters">
+                <div class="panel-body list-group categories">
+                    <?php foreach ($_filters as $_filter): ?>
+                        <a href="<?php echo $_filter->getRemoveUrl() ?># "
+                           class="list-group-item current">
+                            <?php echo $this->__($_filter->getName()) ?>: <?php echo $this->stripTags($_filter->getLabel()) ?> <i class="fa fa-times pull-right"></i>
+                        </a>
+                    <?php endforeach ?>
+
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

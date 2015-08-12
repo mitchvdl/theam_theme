@@ -89,9 +89,14 @@
                 <div class="col-sm-6">
                     <div id="logo">
                         <?php if ($this->getIsHomePage()):?>
-<h1><a href="<?php echo $this->getUrl('') ?>"><img src="<?php echo $this->getLogoSrc() ?>" title="<?php echo $this->getLogoAlt() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="img-responsive" /></a></h1>
+<h1><a href="<?php echo $this->getUrl('') ?>">
+<!-- <img src="<?php echo $this->getLogoSrc() ?>" title="<?php echo $this->getLogoAlt() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="img-responsive" /> -->
+<?php echo Mage::getStoreConfig('general/store_information/name'); ?>
+</a></h1>
                         <?php else: ?>
-<a href="<?php echo $this->getUrl('') ?>"><img src="<?php echo $this->getLogoSrc() ?>" title="<?php echo $this->getLogoAlt() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="img-responsive" /></a>
+<a href="<?php echo $this->getUrl('') ?>"><!-- <img src="<?php echo $this->getLogoSrc() ?>" title="<?php echo $this->getLogoAlt() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="img-responsive" /> -->
+<?php echo Mage::getStoreConfig('general/store_information/name'); ?>
+</a>
                         <?php endif; ?>
 
                     </div>
