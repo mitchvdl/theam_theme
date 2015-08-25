@@ -14,6 +14,17 @@
     <button type="button" class="btn btn-compare" title="Compare"><a href="<?php echo $_compareUrl ?>" class="link-compare"><i class="fa fa-bar-chart-o"></i></a></button>
 <?php endif; ?>
 
-    <button type="button" title="<?php echo $buttonTitle ?>" class="btn btn-cart" onclick=""><?php echo $this->__('Contact us for availability') ?></button>
+    <button type="submit" title="<?php echo $buttonTitle ?>" class="btn btn-booking" onclick="contactUs(this);"><i class="fa fa-phone"></i>&nbsp;<?php echo $this->helper('theam_booking')->__('Contact us for availability'); ?></button>
 </div>
 
+<script type="text/javascript">
+//    <![CDATA[
+    function contactUs(form)
+    {
+        console.log(form);
+        var URL = '<?php echo Mage::getUrl('tbooking', array('product_id' => $_product->getId())); ?>';
+
+    }
+
+//    ]]>
+</script>

@@ -1,0 +1,138 @@
+<?php
+/**
+ * @var Mage_Core_Block_Template $this
+ */
+?>
+<h1 class="main-heading text-center"><?php echo Mage::helper('theam_booking')->__('Book your appointment') ?></h1>
+<?php
+echo $this->getSelectedAttributes();
+?>
+
+<div class="row">
+    <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+
+    <div class="col-xs-12 col-sm-4">
+        <div class="row">
+            <?php echo $this->getChildHtml('widget.product.contact'); ?>
+        </div>
+        <div class="row">
+            <div class="panel panel-smart">
+                <div class="panel-heading page-title">
+                    <h2 class="panel-title"><?php echo Mage::helper('theam_booking')->__('Contact Details') ?></h2>
+                </div>
+                <div class="panel-body">
+                    <?php echo $this->getChildHtml('contact-details'); ?>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-xs-12 col-sm-8">
+
+        <div class="panel panel-smart">
+            <div class="panel-heading page-title">
+                <h2 class="panel-title"><?php echo Mage::helper('theam_booking')->__('Booking Information') ?></h2>
+            </div>
+
+            <div class="panel-body form-list" id="advanced-search-list">
+                <form action="<?php echo $this->getFormAction(); ?>" id="contactForm" method="post" role="form" class="form-horizontal">
+                    <div class="fieldset">
+
+                        <p class="required"><?php echo Mage::helper('theam_booking')->__('* Required Fields') ?></p>
+
+                        <div class="form-group">
+                            <label for="name" class="required col-xs-12 col-sm-2 control-label"><?php echo Mage::helper('theam_booking')->__('Name') ?> <em>*</em></label>
+                            <div class="col-xs-12 col-sm-6">
+                                <input name="name" id="name" title="<?php echo Mage::helper('theam_booking')->__('Name') ?>" value="<?php echo $this->escapeHtml($this->helper('theam_booking')->getUserName()) ?>" class="input-text required-entry form-control" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="required col-xs-12 col-sm-2 control-label"><?php echo Mage::helper('theam_booking')->__('Email') ?> <em>*</em></label>
+                            <div class="col-xs-12 col-sm-6">
+                                <input name="email" id="email" title="<?php echo Mage::helper('theam_booking')->__('Email') ?>" value="<?php echo $this->escapeHtml($this->helper('theam_booking')->getUserEmail()) ?>" class="input-text required-entry validate-email form-control" type="email" autocapitalize="off" autocorrect="off" spellcheck="false" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone" class="required col-xs-12 col-sm-2 control-label"><?php echo Mage::helper('theam_booking')->__('Telephone') ?></label>
+                            <div class="col-xs-12 col-sm-5">
+                                <input name="telephone" id="telephone" title="<?php echo Mage::helper('theam_booking')->__('Telephone') ?>" value="" class="input-text validate-none form-control" type="tel" autocapitalize="off" autocorrect="off" spellcheck="false" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="options" class="required col-xs-12 col-sm-2 control-label"><?php echo Mage::helper('theam_booking')->__('Selected Options') ?></label>
+                            <div class="col-xs-12 col-sm-5">
+                                <input name="selected_options" id="options" title="<?php echo Mage::helper('theam_booking')->__('Selected Options') ?>" class="input-text validate-none form-control" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" readonly="readonly" value="<?php echo implode(';', $this->getSelectedAttributes()); ?>" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="date" class="required col-xs-12 col-sm-2 control-label"><?php echo Mage::helper('theam_booking')->__('Date') ?> <em>*</em></label>
+                            <div class="col-xs-12 col-sm-5">
+                                <input name="telephone" id="date" title="<?php echo Mage::helper('theam_booking')->__('Date') ?>" value="" class="input-text validate-date form-control" type="date" autocapitalize="off" autocorrect="off" spellcheck="false" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="comment" class="required col-xs-12 col-sm-2 control-label"><?php echo Mage::helper('theam_booking')->__('Request') ?> <em>*</em></label>
+                            <div class="col-xs-12 col-sm-10">
+                                <textarea name="comment" id="comment" title="<?php echo Mage::helper('theam_booking')->__('Request') ?>" class="required-entry input-text form-control" cols="5" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row buttons-set">
+                        <div class="buttons-set col-sm-offset-2 col-sm-10">
+                            <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+                            <button type="submit" title="<?php echo Mage::helper('theam_booking')->__('Submit') ?>" class="button btn btn-black text-uppercase"><?php echo Mage::helper('theam_booking')->__('Submit'); ?></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <script type="text/javascript">
+                //<![CDATA[
+                var contactForm = new VarienForm('contactForm', true);
+                //]]>
+            </script>
+        </div>
+        <?php if(Mage::helper('theam_base')->isMapDisplayEnabled()) : ?>
+            <div id="map-wrapper">
+                <div id="map-block"></div>
+            </div>
+            <?php
+            echo $this->getChild('store.contact.details')
+                ->setMapBlock('map-block')
+                ->setMapWrapper('map-wrapper')
+                ->setLongitude(Mage::helper('theam_base')->getLongitude())
+                ->setLatitude(Mage::helper('theam_base')->getLatitude())
+                ->setZoomLevel(14)
+                ->setTitle('Theam bvba Google Map store contact point')
+                ->toHtml()
+            ;
+            ?>
+        <?php endif; ?>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+//    $("map-block").setStyle({
+//        'height': $("map-wrapper").getHeight()
+//    });
+//    function initialize($) {
+//        var mapCanvas = document.getElementById('map-block');
+//        var mapOptions = {
+////            center: new google.maps.LatLng(51.014733, 5.730851),
+//            center: new google.maps.LatLng(17.421306, 78.457553),
+//            zoom: 8,
+//            mapTypeId: google.maps.MapTypeId.ROADMAP
+//        }
+//        var map = new google.maps.Map(mapCanvas, mapOptions);
+//
+//        google.maps.event.trigger(map, 'resize');
+//        map.setZoom( map.getZoom() );
+//    }
+//
+//    document.observe("dom:load", function() {
+//    });
+//    google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>

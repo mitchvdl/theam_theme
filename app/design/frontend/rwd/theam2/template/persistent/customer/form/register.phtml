@@ -35,7 +35,7 @@
                         <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getFormData())->setForceUseCustomerAttributes(true)->toHtml() ?>
                     <div class="form-group">
                         <label for="email_address" class="required col-sm-2 control-label"><em>*</em><?php echo $this->__('Email Address') ?></label>
-                        <div class="col-sm-10 col-md-4">
+                        <div class="col-    sm-10 col-md-4">
                             <input type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="email" id="email_address" value="<?php echo $this->escapeHtml($this->getFormData()->getEmail()) ?>" title="<?php echo $this->__('Email Address') ?>" class="form-control input-text validate-email required-entry" placeholder="<?php echo $this->__('john.doe@example.com'); ?>" />
                         </div>
 

@@ -28,11 +28,11 @@
     <customer_account_login>
         <reference name="customer.login.form.col.left">
             <!--<block type="customer/form_login" name="customer.form.block.new" template="persistent/customer/form/block/new.phtml"  before="-" />-->
-            <block type="customer/form_register" name="customer.form.block.register" template="persistent/customer/form/block/register.phtml"  after="customer.form.block.new" />
+            <block type="customer/form_login" name="form.block.login" template="persistent/customer/form/block/login.phtml" before="-"  />
         </reference>
 
         <reference name="customer.login.form.col.right">
-            <block type="customer/form_login" name="form.block.login" template="persistent/customer/form/block/login.phtml" before="-"  />
+
             <block type="customer/account_forgotpassword" name="form.block.forgotpassword" template="persistent/customer/form/block/forgotpassword.phtml" after="form.block.login"  />
         </reference>
 
@@ -40,7 +40,7 @@
 
         </reference>
         <reference name="customer.login.form.bottom">
-
+            <block type="customer/form_register" name="customer.form.block.register" template="persistent/customer/form/block/register.phtml"  after="customer.form.block.new" />
         </reference>
     </customer_account_login>
 </layout>

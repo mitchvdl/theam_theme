@@ -18,7 +18,7 @@
 
     </div>
     <div class="col-sm-8 product-details">
-        <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?> class="form-horizontal">
+        <form action="<?php echo Mage::getUrl('tbooking', array('product_id' => $_product->getId())); ?><?php //echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?> class="form-horizontal">
             <?php echo $this->getBlockHtml('formkey') ?>
             <div class="no-display">
                 <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
@@ -61,7 +61,7 @@
 
             <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                 <hr />
-                <?php //echo $this->getChildChildHtml('container1', '', true, true) ?>
+                <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
             <?php endif;?>
 
             <?php if ($_product->isSaleable() && $this->hasOptions()):?>

@@ -84,7 +84,7 @@
                                 <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
                                     <button type="button" class="btn btn-compare" title="Compare"><a href="<?php echo $_compareUrl ?>" class="link-compare"><i class="fa fa-bar-chart-o"></i></a></button>
                                 <?php endif; ?>
-                                <button type="button" title="<?php echo $this->__('Contact us for availability') ?>" class="btn btn-cart" onclick=""><?php echo $this->__('Contact us for availability') ?></button>
+                                <button type="button" title="<?php echo $this->helper('theam_booking')->__('Contact us for availability') ?>" class="btn btn-compare" onclick=""><a href="<?php echo Mage::getUrl('tbooking', array('product_id' => $_product->getId())); ?>"><i class="fa fa-phone"></i>&nbsp;<?php echo $this->helper('theam_booking')->__('contact'); ?></a></button>
                             </div>
                         </div>
                     </div>
@@ -174,9 +174,10 @@
                             <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
                                 <button type="button" class="btn btn-compare" title="Compare"><a href="<?php echo $_compareUrl ?>" class="link-compare"><i class="fa fa-bar-chart-o"></i></a></button>
                             <?php endif; ?>
+                            <button type="button" title="<?php echo $this->helper('theam_booking')->__('Contact us for availability') ?>" class="btn btn-compare" onclick=""><a href="<?php echo Mage::getUrl('tbooking', array('product_id' => $_product->getId())); ?>"><i class="fa fa-phone"></i>&nbsp;<?php echo $this->helper('theam_booking')->__('contact'); ?></a></button>
                         </div>
                         <div class="button-group">
-                            <button type="button" title="<?php echo $this->__('Contact us for availability') ?>" class="btn btn-block btn-cart" onclick=""><?php echo $this->__('Contact us for availability') ?></button>
+
                         </div>
                     </div>
                 </div>
