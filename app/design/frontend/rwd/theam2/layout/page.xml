@@ -32,17 +32,17 @@
 
                 <!-- Add vendor dependencies -->
                 <!-- Add vendor dependencies -->
-                <action method="addItem"><type>skin_js</type><name>js/lib/modernizr.custom.min.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/lib/selectivizr.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/lib/matchMedia.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/lib/matchMedia.addListener.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/lib/enquire.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/app.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/lib/jquery.cycle2.min.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/lib/jquery.cycle2.swipe.min.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/slideshow.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/lib/imagesloaded.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/minicart.js</name></action>
+                <!--<action method="addItem"><type>skin_js</type><name>js/lib/modernizr.custom.min.js</name></action>-->
+                <!--<action method="addItem"><type>skin_js</type><name>js/lib/selectivizr.js</name></action>-->
+                <!--<action method="addItem"><type>skin_js</type><name>js/lib/matchMedia.js</name></action>-->
+                <!--<action method="addItem"><type>skin_js</type><name>js/lib/matchMedia.addListener.js</name></action>-->
+                <!--<action method="addItem"><type>skin_js</type><name>js/lib/enquire.js</name></action>-->
+                <!--<action method="addItem"><type>skin_js</type><name>js/app.js</name></action>-->
+                <!--<action method="addItem"><type>skin_js</type><name>js/lib/jquery.cycle2.min.js</name></action>-->
+                <!--<action method="addItem"><type>skin_js</type><name>js/lib/jquery.cycle2.swipe.min.js</name></action>-->
+                <!--<action method="addItem"><type>skin_js</type><name>js/slideshow.js</name></action>-->
+                <!--<action method="addItem"><type>skin_js</type><name>js/lib/imagesloaded.js</name></action>-->
+                <!--<action method="addItem"><type>skin_js</type><name>js/minicart.js</name></action>-->
 
                 <action method="addLinkRel"><rel>stylesheet</rel><href>//fonts.googleapis.com/css?family=Raleway:300,400,500,700,600</href></action>
                 <action method="addLinkRel"><rel>stylesheet</rel><href>//fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700</href></action>
