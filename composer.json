@@ -15,18 +15,10 @@
   "minimum-stability": "dev",
   "extra": {
     "map": [
-      [
-        "app/design/adminhtml/default/default/layout/theam/navigation.xml",
-        "app/design/adminhtml/default/default/layout/theam/navigation.xml"
-      ],
-      [
-        "app/design/frontend/rwd/theam2",
-        "app/design/frontend/rwd/theam2"
-      ],
-      [
-        "skin/frontend/rwd/theam2",
-        "skin/frontend/rwd/theam2"
-      ]
+      ["app/design/adminhtml/default/default/layout/theam/navigation.xml","app/design/adminhtml/default/default/layout/theam/navigation.xml"],
+      ["app/design/frontend/rwd/theam2","app/design/frontend/rwd/theam2"],
+      ["skin/frontend/rwd/theam2","skin/frontend/rwd/theam2"],
+      ["app/locale/nl_NL","app/locale/nl_NL"]
     ]
   }
 }
